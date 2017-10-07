@@ -34,21 +34,21 @@
     + Without bonus MVP's, users should be able to place and find events, and have a means of contacting event hosts.
 
 
- #### Frontend Interface
-   + Implemented in React Native
-   + There will be 5+ scenes including:
-     - Account Creation / Signup
-     - Event Creation / Edit
-     - Event Show
-     - User Dashboard
-     - Map
-   + These scenes entail creating forms in React native, as well as a filter/search bar and navbar components.
+#### Frontend Interface
+  + Implemented in React Native
+  + There will be 5+ scenes including:
+    - Account Creation / Signup
+    - Event Creation / Edit
+    - Event Show
+    - User Dashboard
+    - Map
+  + These scenes entail creating forms in React native, as well as a filter/search bar and navbar components.
 
- #### Backend
-    + Ruby on Rails with PostgreSQL will store:
-      - User information
-      - Events with coordinates to be displayed on a map
-      - Event Types, conceptually similar to tags
+#### Backend
+   + Ruby on Rails with PostgreSQL will store:
+     - User information
+     - Events with coordinates to be displayed on a map
+     - Event Types, conceptually similar to tags
 
 ## Project Flowchart
 
