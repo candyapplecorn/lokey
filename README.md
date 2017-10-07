@@ -24,22 +24,27 @@
 
   + ##### Initial Events
     + The creators will place activities on the app's map.
+    
+#### Map
+ + We will use Google Map's API
+ + AirBnB has a [React Google Maps](https://github.com/airbnb/react-native-maps) component which may be used.
 
 #### Creating a seamless mobile experience
   + ##### _Including bonus MVP's_, users should be able to place & find events, and coordinate with **event hosts**, all using the app.
     + Without bonus MVP's, users should be able to place and find events, and have a means of contacting event hosts.
 
-#### UX
-  + ##### Frontend Interface
-    + Implemented in React Native
-    + There will be 5+ scenes including:
-      - Account Creation / Signup
-      - Event Creation / Edit
-      - Event Show
-      - User Dashboard
-      - Map
 
-  + #### Backend
+ #### Frontend Interface
+   + Implemented in React Native
+   + There will be 5+ scenes including:
+     - Account Creation / Signup
+     - Event Creation / Edit
+     - Event Show
+     - User Dashboard
+     - Map
+   + These scenes entail creating forms in React native, as well as a filter/search bar and navbar components.
+
+ #### Backend
     + Ruby on Rails with PostgreSQL will store:
       - User information
       - Events with coordinates to be displayed on a map
