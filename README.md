@@ -16,6 +16,12 @@
 #### Seeding the Database
   + ##### Whitelisting Activities
     + LoKey is not a dating app. Users should not be able to post activities like "m4w 19y/o bbw pref". LoKey will initially have common activities, after which more will be added.
+    + Common activities may be like:
+     - Catch
+     - Sculpting
+     - Painting
+     - Unicycling
+     - Banana Juggling
 
   + ##### Initial Events
     + The creators will place activities on the app's map.
