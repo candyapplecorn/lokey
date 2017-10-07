@@ -2,9 +2,9 @@
 ### LoKey implements the Google Maps API and React native to create a location-aware app for connecting strangers
 
 ## Background and Overview
-
+test
 ## Functionality & MVP
-
+edit
 #### Bonus Features
  + User-requested activity types
  + In-app event-oriented chat system
@@ -24,7 +24,7 @@
 
   + ##### Initial Events
     + The creators will place activities on the app's map.
-    
+
 #### Map
  + We will use Google Map's API
  + AirBnB has a [React Google Maps](https://github.com/airbnb/react-native-maps) component which may be used.
@@ -69,6 +69,5 @@
 ### Day 4
 
 ### Day 5
-  
+
 ### Day 6
- 
