@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # lokey
 ### LoKey implements the Google Maps API and React native to create a location-aware app for connecting strangers
 
@@ -97,5 +71,4 @@ Things you may want to cover:
 ### Day 5
   
 ### Day 6
- 
->>>>>>> 2acce4c59a6e8bb45691d98c44e7728982380b86
+
