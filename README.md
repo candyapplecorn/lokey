@@ -2,8 +2,16 @@
 ### LoKey implements the Google Maps API and React native to create a location-aware app to allow strangers to connect and share in unique activities.
 
 ## Background and Overview
+LoKey is a social peer-to-peer meetup app utilizing React Native that allows users to connect with one another to participate in low-key activities in their local area. LoKey is designed specifically with obscure and underappreciated hobbies and activities-- as well as their participants-- in mind, allowing users to come together, make new connections, and create memorable experiences doing things they enjoy with other likeminded people who enjoy them too.
 
 ## Functionality & MVP
+Utilizing Google Maps API, users will be able to view and search for various activities taking place in their area.
+
+### MVPs
+* Secure frontend-to-backend user authentication using BCrypt
+* Display map through Google API of local area
+* Display activites on map; allow users to create / join activites
+* Search / filter events
 
 #### Bonus Features
  + User-requested activity types
@@ -69,6 +77,7 @@
 ### Day 4
 
 ### Day 5
+<<<<<<< HEAD
 
 ### Day 6
 
@@ -79,3 +88,7 @@
 * Send out email and follow up as needed.
 
 * Until we reach our goal of ~40 users and 15 reviews, we will continue to follow up with people we reached out to.
+=======
+
+### Day 6
+>>>>>>> 3e4be0360860bcc13b21d0e5e29cbc88fdb09943
