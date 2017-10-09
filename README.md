@@ -65,7 +65,7 @@ Utilizing Google Maps API, users will be able to view and search for various act
 ## Project Flowchart
 
 ### Create Event
-![Create Event](wireframes/iPhone 67 – 1.png)
+![Create Event](wireframes/iPhone 67_–_1.png)
 
 ### Map
 ![Map](wireframes/iPhone 67 – 2.png)
