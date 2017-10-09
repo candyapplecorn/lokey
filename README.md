@@ -79,6 +79,7 @@ Utilizing Google Maps API, users will be able to view and search for various act
 **Joseph Bieze**,
 **Joseph Burger**,
 
+<<<<<<< HEAD
 ### Day 1
   + Finish setting up the backend, which entails:
     - Setting up controllers, including sessionController and applicationController
@@ -94,8 +95,42 @@ Utilizing Google Maps API, users will be able to view and search for various act
   + Show events on map
   + Event show
 ### Day 5
+=======
+## Phase One: Learn New Technologies
 
-### Day 6
+* All group members will dedicate time to learn React Native.
+* Emulators will be set up on each group member's machine.
+* Majority of Rails Backend will be constructed.
+* Set up routes.
+* Proposal README will be complete.
+
+## Phase Two: Users
+
+* User Authentication (1 day)
+  + Set up user authentication for both frontend and backend.
+  + Users should be able to create an account and log in. Log in should persist.
+
+* User Profiles + NavBar (1 day)
+  + User profile page will display interests.
+  + NavBar should be created with links to the appropriate scenes.
+>>>>>>> c97240e2ba4ca0c61632ec8444d62237c36adaf4
+
+## Phase Three: Functional Components
+
+* Create an Event + Event Index (1 day)
+  + Build form for users to create events.
+  + Event Index will include information pertaining to both past and future events.
+
+* Map Page (3 days)
+  + Set up Google Maps API.
+  + Create functionality for filtering events by location, event name or username.
+  + Default markers should appear when map scene is first opened.
+  + Default search radius should also be implemented
+  + Markers should appear according to search results
+
+## Phase Four: Final Touches (1 day)
+* Final styling and UI touches
+* Launch app on App Store and Google Play Store.
 
 ## Plan for getting users and reviews.
 
