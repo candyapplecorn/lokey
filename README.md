@@ -84,7 +84,7 @@ Utilizing Google Maps API, users will be able to view and search for various act
 
 * User Profiles + NavBar (1 day)
   + User profile page will display interests.
-  + NavBar should be created that links to the appropriate scene.
+  + NavBar should be created with links to the appropriate scenes.
 
 ## Phase Three: Functional Components
 
