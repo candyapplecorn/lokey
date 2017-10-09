@@ -64,6 +64,25 @@ Utilizing Google Maps API, users will be able to view and search for various act
 
 ## Project Flowchart
 
+### Create Event
+![Create Event](wireframes/iPhone 67_–_1.png)
+
+### Map
+![Map](wireframes/iPhone 67 – 2.png)
+
+### User Dashboard
+![User Profile](wireframes/iPhone 67 – 3.png)
+
+### New User Registration
+![User Registration](wireframes/iPhone 67 – 4.png)
+
+### Signup
+![User SignIn](wireframes/iPhone 67 – 5.png)
+
+### Calendar
+![Event Calendar](wireframes/iPhone 67 – 6.png)
+
+
 ## Accomplished over the Weekend
 
 + Familiarized with Create-React-Native-App and the Expo client which emulates an app, live, on one's phone
