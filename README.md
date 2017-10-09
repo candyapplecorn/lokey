@@ -64,6 +64,25 @@ Utilizing Google Maps API, users will be able to view and search for various act
 
 ## Project Flowchart
 
+### Create Event
+![Create Event](wireframes/iPhone 67 – 1.png)
+
+### Map
+![Map](wireframes/iPhone 67 – 2.png)
+
+### User Dashboard
+![User Profile](wireframes/iPhone 67 – 3.png)
+
+### New User Registration
+![User Registration](wireframes/iPhone 67 – 4.png)
+
+### Signup
+![User SignIn](wireframes/iPhone 67 – 5.png)
+
+### Calendar
+![Event Calendar](wireframes/iPhone 67 – 6.png)
+
+
 ## Accomplished over the Weekend
 
 + Familiarized with Create-React-Native-App and the Expo client which emulates an app, live, on one's phone
@@ -79,23 +98,6 @@ Utilizing Google Maps API, users will be able to view and search for various act
 **Joseph Bieze**,
 **Joseph Burger**,
 
-<<<<<<< HEAD
-### Day 1
-  + Finish setting up the backend, which entails:
-    - Setting up controllers, including sessionController and applicationController
-  + Use any remaining time to begin working on wiring the React Native app to the backend
-
-### Day 2
-  + User registration and login - First App Views
-
-### Day 3
-  + Finish user registration and login
-  + Event creation
-### Day 4
-  + Show events on map
-  + Event show
-### Day 5
-=======
 ## Phase One: Learn New Technologies
 
 * All group members will dedicate time to learn React Native.
@@ -113,7 +115,6 @@ Utilizing Google Maps API, users will be able to view and search for various act
 * User Profiles + NavBar (1 day)
   + User profile page will display interests.
   + NavBar should be created with links to the appropriate scenes.
->>>>>>> c97240e2ba4ca0c61632ec8444d62237c36adaf4
 
 ## Phase Three: Functional Components
 
