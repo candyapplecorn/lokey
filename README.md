@@ -77,7 +77,6 @@ Utilizing Google Maps API, users will be able to view and search for various act
 ### Day 4
 
 ### Day 5
-<<<<<<< HEAD
 
 ### Day 6
 
@@ -88,7 +87,3 @@ Utilizing Google Maps API, users will be able to view and search for various act
 * Send out email and follow up as needed.
 
 * Until we reach our goal of ~40 users and 15 reviews, we will continue to follow up with people we reached out to.
-=======
-
-### Day 6
->>>>>>> 3e4be0360860bcc13b21d0e5e29cbc88fdb09943
