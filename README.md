@@ -65,22 +65,22 @@ Utilizing Google Maps API, users will be able to view and search for various act
 ## Project Flowchart
 
 ### Create Event
-![Create Event](wireframes/iPhone 67_–_1.png)
+![Create Event](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone_67_1.png)
 
 ### Map
-![Map](wireframes/iPhone 67 – 2.png)
+![Map](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%202.png)
 
 ### User Dashboard
-![User Profile](wireframes/iPhone 67 – 3.png)
+![User Profile](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%203.png)
 
 ### New User Registration
-![User Registration](wireframes/iPhone 67 – 4.png)
+![User Registration](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%204.png)
 
 ### Signup
-![User SignIn](wireframes/iPhone 67 – 5.png)
+![User SignIn](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%205.png)
 
 ### Calendar
-![Event Calendar](wireframes/iPhone 67 – 6.png)
+![Event Calendar](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%206.png)
 
 
 ## Accomplished over the Weekend
@@ -108,21 +108,21 @@ Utilizing Google Maps API, users will be able to view and search for various act
 
 ## Phase Two: Users
 
-* User Authentication (1 day)
+* User Authentication (1 day - All team members)
   + Set up user authentication for both frontend and backend.
   + Users should be able to create an account and log in. Log in should persist.
 
-* User Profiles + NavBar (1 day)
+* User Profiles + NavBar (1 day - All team members)
   + User profile page will display interests.
   + NavBar should be created with links to the appropriate scenes.
 
 ## Phase Three: Functional Components
 
-* Create an Event + Event Index (1 day)
+* Create an Event + Event Index (1 day - Joey/Sunayna)
   + Build form for users to create events.
   + Event Index will include information pertaining to both past and future events.
 
-* Map Page (3 days)
+* Map Page (3 days - Joe will start while Joey/Sunayna work on Events)
   + Set up Google Maps API.
   + Create functionality for filtering events by location, event name or username.
   + Default markers should appear when map scene is first opened.
@@ -130,6 +130,7 @@ Utilizing Google Maps API, users will be able to view and search for various act
   + Markers should appear according to search results
 
 ## Phase Four: Final Touches (1 day)
+* All Team Members
 * Final styling and UI touches
 * Launch app on App Store and Google Play Store.
 

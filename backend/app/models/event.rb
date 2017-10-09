@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   validates :host, :activity, :coordinate, presence: true
 
-  belongs_to :activity
+  has_one :activity, as: :act_type
 
   has_one :coordinate, as: :locatable
 
