@@ -5,6 +5,16 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
+    has_many :interestings,
+      primary_key: :id,
+      foreign_key: :activity_id,
+      class_name: :Activity,
+      as: :act_type
+
+    has_many :interests,
+    source: :act_type,
+    through: :interestings
+
     has_many :hosted_events,
       primary_key: :id,
       foreign_key: :host_id,
