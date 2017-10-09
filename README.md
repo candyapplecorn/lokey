@@ -79,23 +79,6 @@ Utilizing Google Maps API, users will be able to view and search for various act
 **Joseph Bieze**,
 **Joseph Burger**,
 
-<<<<<<< HEAD
-### Day 1
-  + Finish setting up the backend, which entails:
-    - Setting up controllers, including sessionController and applicationController
-  + Use any remaining time to begin working on wiring the React Native app to the backend
-
-### Day 2
-  + User registration and login - First App Views
-
-### Day 3
-  + Finish user registration and login
-  + Event creation
-### Day 4
-  + Show events on map
-  + Event show
-### Day 5
-=======
 ## Phase One: Learn New Technologies
 
 * All group members will dedicate time to learn React Native.
@@ -106,22 +89,21 @@ Utilizing Google Maps API, users will be able to view and search for various act
 
 ## Phase Two: Users
 
-* User Authentication (1 day)
+* User Authentication (1 day - All team members)
   + Set up user authentication for both frontend and backend.
   + Users should be able to create an account and log in. Log in should persist.
 
-* User Profiles + NavBar (1 day)
+* User Profiles + NavBar (1 day - All team members)
   + User profile page will display interests.
   + NavBar should be created with links to the appropriate scenes.
->>>>>>> c97240e2ba4ca0c61632ec8444d62237c36adaf4
 
 ## Phase Three: Functional Components
 
-* Create an Event + Event Index (1 day)
+* Create an Event + Event Index (1 day - Joey/Sunayna)
   + Build form for users to create events.
   + Event Index will include information pertaining to both past and future events.
 
-* Map Page (3 days)
+* Map Page (3 days - Joe will start while Joey/Sunayna work on Events)
   + Set up Google Maps API.
   + Create functionality for filtering events by location, event name or username.
   + Default markers should appear when map scene is first opened.
@@ -129,6 +111,7 @@ Utilizing Google Maps API, users will be able to view and search for various act
   + Markers should appear according to search results
 
 ## Phase Four: Final Touches (1 day)
+* All Team Members
 * Final styling and UI touches
 * Launch app on App Store and Google Play Store.
 
