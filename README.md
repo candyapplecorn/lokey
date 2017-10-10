@@ -1,5 +1,5 @@
-# lokey
-### LoKey implements the Google Maps API and React native to create a location-aware app for connecting strangers
+# LoKey
+### LoKey implements the Google Maps API and React native to create a location-aware app to allow strangers to connect and share in unique activities.
 
 ## Background and Overview
 LoKey is a social peer-to-peer meetup app utilizing React Native that allows users to connect with one another to participate in low-key activities in their local area. LoKey is designed specifically with obscure and underappreciated hobbies and activities-- as well as their participants-- in mind, allowing users to come together, make new connections, and create memorable experiences doing things they enjoy with other likeminded people who enjoy them too.
@@ -18,12 +18,15 @@ Utilizing Google Maps API, users will be able to view and search for various act
  + In-app event-oriented chat system
 
 ## Technologies & Technical Challenges
-  ##### Backend: Ruby on Rails
-  ##### Frontend: React Native
+  This will be our first React Native app, so we will be wrangling all the errors and gotchas that get greenhorns. We will be working with form elements, and using a map component. Besides working with Google's API to produce a map, we will be requesting data from our backend and displaying it as markers on said map. There are several things at play here:
+
+  - Getting a Ruby on Rails backend to work together with a React Native app Frontend
+  - Working with Google Maps' API... in React Native
+  - Working in React Native for the 1st time.
 
 #### Seeding the Database
   + ##### Whitelisting Activities
-    + LoKey is not a dating app. Users should not be able to post activities like "m4w 19y/o bbw pref". LoKey will initially have common activities, after which more will be added. Common activities may be like:
+    + LoKey is not a dating app. Users should not be able to post activities like "*m4w 19y/o bbw pref*". LoKey will initially have common activities, after which more will be added. Common activities may be like:
      - Catch
      - Sculpting
      - Painting
@@ -36,6 +39,7 @@ Utilizing Google Maps API, users will be able to view and search for various act
 #### Map
  + We will use Google Map's API
  + AirBnB has a [React Google Maps](https://github.com/airbnb/react-native-maps) component which may be used.
+  - This map component has an easy-to-use MapMarker feature, where MapMarkers may be shown. They just need coordinates. We can create custom views for the markers, and upon clicking a marker, take the user to an Event#show scene.
 
 #### Creating a seamless mobile experience
   + ##### _Including bonus MVP's_, users should be able to place & find events, and coordinate with **event hosts**, all using the app.
@@ -60,7 +64,33 @@ Utilizing Google Maps API, users will be able to view and search for various act
 
 ## Project Flowchart
 
+### Create Event
+![Create Event](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone_67_1.png)
+
+### Map
+![Map](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%202.png)
+
+### User Dashboard
+![User Profile](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%203.png)
+
+### New User Registration
+![User Registration](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%204.png)
+
+### Signup
+![User SignIn](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%205.png)
+
+### Calendar
+![Event Calendar](https://raw.githubusercontent.com/candyapplecorn/lokey/master/wireframes/iPhone%2067%20%E2%80%93%206.png)
+
+
 ## Accomplished over the Weekend
+
++ Familiarized with Create-React-Native-App and the Expo client which emulates an app, live, on one's phone
++ Researched React Native and the most important component, a map
+  - Played with AirBnB's react native map component, which provides everything this project's MVP's need
++ Created a Ruby on Rails backend in the ```backend``` folder, which still needs routes and controllers.
+  - Has a polymorphic association for the ```coordinate``` model!
++ Created a React Native app in the ```/frontend``` folder
 
 ## Group Members & Work Breakdown
 
@@ -68,14 +98,46 @@ Utilizing Google Maps API, users will be able to view and search for various act
 **Joseph Bieze**,
 **Joseph Burger**,
 
-### Day 1
+## Phase One: Learn New Technologies
 
-### Day 2
+* All group members will dedicate time to learn React Native.
+* Emulators will be set up on each group member's machine.
+* Majority of Rails Backend will be constructed.
+* Set up routes.
+* Proposal README will be complete.
 
-### Day 3
+## Phase Two: Users
 
-### Day 4
+* User Authentication (1 day - All team members)
+  + Set up user authentication for both frontend and backend.
+  + Users should be able to create an account and log in. Log in should persist.
 
-### Day 5
+* User Profiles + NavBar (1 day - All team members)
+  + User profile page will display interests.
+  + NavBar should be created with links to the appropriate scenes.
 
-### Day 6
+## Phase Three: Functional Components
+
+* Create an Event + Event Index (1 day - Joey/Sunayna)
+  + Build form for users to create events.
+  + Event Index will include information pertaining to both past and future events.
+
+* Map Page (3 days - Joe will start while Joey/Sunayna work on Events)
+  + Set up Google Maps API.
+  + Create functionality for filtering events by location, event name or username.
+  + Default markers should appear when map scene is first opened.
+  + Default search radius should also be implemented
+  + Markers should appear according to search results
+
+## Phase Four: Final Touches (1 day)
+* All Team Members
+* Final styling and UI touches
+* Launch app on App Store and Google Play Store.
+
+## Plan for getting users and reviews.
+
+* Craft a general email to send out to all cohort-mates and friends and family of group members.
+
+* Send out email and follow up as needed.
+
+* Until we reach our goal of ~40 users and 15 reviews, we will continue to follow up with people we reached out to.
