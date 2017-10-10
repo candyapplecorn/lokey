@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   validates :host, :activity, :coordinate, presence: true
 
-  has_one :activity, as: :act_type
+  belongs_to :activity
 
   has_one :coordinate, as: :locatable
 
@@ -9,4 +9,5 @@ class Event < ApplicationRecord
     primary_key: :id,
     foreign_key: :host_id,
     class_name: 'User'
+
 end
