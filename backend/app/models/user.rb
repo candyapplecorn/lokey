@@ -7,12 +7,11 @@ class User < ApplicationRecord
 
     has_many :interestings,
       primary_key: :id,
-      foreign_key: :activity_id,
-      class_name: :Activity,
-      as: :act_type
+      foreign_key: :user_id,
+      class_name: :Interest
 
     has_many :interests,
-    source: :act_type,
+    source: :activity,
     through: :interestings
 
     has_many :hosted_events,
