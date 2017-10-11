@@ -17,7 +17,7 @@ class EventFormScreen extends React.Component {
             onChangeText={(text) => this.setState({location: text})}
           />
           <TextInput
-            style={{height: 40}}
+            style={{height: 100}}
             placeholder="Description"
             onChangeText={(text) => this.setState({description: text})}
           />
