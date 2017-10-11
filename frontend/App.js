@@ -10,7 +10,7 @@ class MapScreen extends React.Component {
       <View>
         <Text>This is the map screen!</Text>
         <Button
-            onPress={() => navigate('EventShow', {event: 'swimming'})}
+            onPress={() => navigate('EventShow', {event: 'mapping'})}
             title="Event Details"
           />
       </View>
@@ -34,7 +34,7 @@ class EventIndexScreen extends React.Component {
       <View>
         <Text>Events for User</Text>
           <Button
-              onPress={() => navigate('EventShow')}
+              onPress={() => navigate('EventShow', {event: 'indexing'})}
               title="Event Details"
             />
       </View>
