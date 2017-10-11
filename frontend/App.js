@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 class MapScreen extends React.Component {
@@ -47,6 +47,21 @@ class EventFormScreen extends React.Component {
     return(
       <View>
         <Text>This is the Event Form Screen!</Text>
+          <TextInput
+            style={{height: 40}}
+            placeholder="Activity"
+            onChangeText={(text) => this.setState({activity: text})}
+          />
+          <TextInput
+            style={{height: 40}}
+            placeholder="Location"
+            onChangeText={(text) => this.setState({location: text})}
+          />
+          <TextInput
+            style={{height: 40}}
+            placeholder="Description"
+            onChangeText={(text) => this.setState({description: text})}
+          />
       </View>
     );
   }
@@ -83,7 +98,7 @@ const MainScreenNavigator = TabNavigator({
 // Similar to our switch statement for routes
 const SimpleApp = StackNavigator({
   Home: { screen: MainScreenNavigator },
-  EventShow: { screen: EventShowScreen },
+  EventShow: { screen: EventShowScreen }
 });
 
 export default class App extends React.Component {
