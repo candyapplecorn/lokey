@@ -34,3 +34,4 @@ Rakefile
 config/secrets.yml
 *mkv
 application.yml
+packager-info.json
