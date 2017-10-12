@@ -8,7 +8,7 @@ import {
 
 import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-
+import NavbarContainer from './navbar/navbar_container';
 
 const App = () => (
   <div className="everything">
@@ -16,6 +16,11 @@ const App = () => (
       <AuthRoute path="/sign-in" component={SessionFormContainer} />
       <AuthRoute path="/sign-up" component={SessionFormContainer} />
     </Switch>
+    <footer className="navbar-footer">
+      <div className="navbar-footer-div">
+        <NavbarContainer />
+      </div>
+    </footer>
 </div>
 );
 
