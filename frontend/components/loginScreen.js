@@ -14,13 +14,13 @@ class LoginScreen extends React.Component {
       <View
         style={styles.loginscreen}>
         <TextInput
-          style={{height: 40}}
-          placeholder="Username"
+          style={styles.bigblue}
+          placeholder="Username" placeholderTextColor="#e8f1f2"
           onChangeText={(text) => this.setState({username: text})}
         />
         <TextInput
-          style={{height: 40}}
-          placeholder="Password"
+          style={styles.bigblue}
+          placeholder="Password" placeholderTextColor="#e8f1f2"
           onChangeText={(text) => this.setState({password: text})}
         />
       </View>

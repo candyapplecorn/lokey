@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, Button} from 'react-native';
 import EventShow from './eventShowScreen';
+import styles from '../stylesheets/stylesheet';
 
 class MapScreen extends React.Component {
   render() {
@@ -8,7 +9,7 @@ class MapScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Text>This is the map screen!</Text>
+        <Text style={styles.bigblue}>This is the map screen!</Text>
         <Button
             onPress={() => navigate('EventShow', {event: 'mapping'})}
             title="Event Details"
