@@ -12,7 +12,7 @@ class LoginScreen extends React.Component {
 
   constructor(props){
     super(props);
-    this.props.state = {username: "", password: ""};
+    this.state = {username: "", password: ""};
     this.login = this.login.bind(this);
   }
   //
@@ -29,7 +29,7 @@ class LoginScreen extends React.Component {
           console.log(data);
           navigate('MainScreenNavigator')
         });
-      }
+      })
   }
 
 
