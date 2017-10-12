@@ -12,6 +12,7 @@ class LoginScreen extends React.Component {
 
   constructor(props){
     super(props);
+    this.state = {username: "", password: ""};
     this.state = {username: "", password: "", user: "none"};
     this.login = this.login.bind(this);
   }
@@ -19,6 +20,19 @@ class LoginScreen extends React.Component {
   //
   login() {
     const { navigate } = this.props.navigation;
+<<<<<<< HEAD:old_frontend/components/loginScreen.js
+    getUser(this.state.username, this.state.password)
+      .then((response) => {
+        if (response.status !== 200){
+          console.log('Looks like there was a problem. Status Code: ' + response.status);
+          return;
+        }
+        response.json().then(function(data) {
+          console.log(data);
+          navigate('MainScreenNavigator')
+        });
+      })
+=======
     async getUser(this.state.username, this.state.password){
     const ipAddress = config.ip;
 
@@ -45,6 +59,7 @@ class LoginScreen extends React.Component {
     throw e;
   }
 }
+>>>>>>> 69de9c13ab47b5c01945e06e28a7236375140429:frontend/components/loginScreen.js
   }
 
 
@@ -54,13 +69,13 @@ class LoginScreen extends React.Component {
       <View
         style={styles.loginscreen}>
         <TextInput
-          style={{height: 40}}
-          placeholder="Username"
+          style={styles.bigblue}
+          placeholder="Username" placeholderTextColor="#e8f1f2"
           onChangeText={(text) => this.setState({username: text})}
         />
         <TextInput
-          style={{height: 40}}
-          placeholder="Password"
+          style={styles.bigblue}
+          placeholder="Password" placeholderTextColor="#e8f1f2"
           onChangeText={(text) => this.setState({password: text})}
         />
       <Button
