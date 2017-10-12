@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, TextInput, Button } from 'react-native';
 import { styles } from '../stylesheets/stylesheet';
+import { getUser } from '../actions/session_actions';
+import MainScreenNavigator from '../navigators';
 
 
 class LoginScreen extends React.Component {
@@ -8,14 +10,26 @@ class LoginScreen extends React.Component {
     title: "Welcome Back"
   });
 
-  // constructor(props){
-  //   super(props);
-  //   this.props.state = {username: "", password: ""}
-  // }
+  constructor(props){
+    super(props);
+    this.props.state = {username: "", password: ""};
+    this.login = this.login.bind(this);
+  }
   //
   //
-  async login() {
+  login() {
+    const { navigate } = this.props.navigation;
     getUser(this.state.username, this.state.password)
+      .then((response) => {
+        if (response.status !== 200){
+          console.log('Looks like there was a problem. Status Code: ' + response.status);
+          return;
+        }
+        response.json().then(function(data) {
+          console.log(data);
+          navigate('MainScreenNavigator')
+        });
+      }
   }
 
 
@@ -35,7 +49,7 @@ class LoginScreen extends React.Component {
           onChangeText={(text) => this.setState({password: text})}
         />
       <Button
-        onPress={() => login()}
+        onPress={() => this.login()}
         title="Submit"
       />
       </View>
