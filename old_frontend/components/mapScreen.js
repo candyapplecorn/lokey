@@ -11,9 +11,6 @@ class MapScreen extends React.Component {
       }
     };
   }
-  componentDidMount(){
-    this.getUser();
-  }
 
   render() {
     // Allows for navigation to a different screen. Can be passed as a callback for the onPress function of the button
