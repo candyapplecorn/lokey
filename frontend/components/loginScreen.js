@@ -12,27 +12,39 @@ class LoginScreen extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {username: "", password: ""};
+    this.state = {username: "", password: "", user: "none"};
     this.login = this.login.bind(this);
   }
   //
   //
   login() {
     const { navigate } = this.props.navigation;
-    getUser(this.state.username, this.state.password)
-      .then((response) => {
-        if (response.status !== 200){
-          console.log('Looks like there was a problem. Status Code: ' + response.status);
-          return;
-        }
-        response.json().then(function(data) {
-          console.log(data);
-          navigate('Home')
-        });
-      }).catch((reason) => {
-        console.log(reason)
-      })
-    navigate("Home");
+    async getUser(this.state.username, this.state.password){
+    const ipAddress = config.ip;
+
+    try {
+      const user = await fetch(`${ipAddress}/api/session`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: {
+            username: 'tester',
+            password: '123456'
+          }
+        })
+      });
+      var data = await user.json()
+
+
+      this.setState({ user: data })
+  } catch (e) {
+    console.log(e)
+    throw e;
+  }
+}
   }
 
 
