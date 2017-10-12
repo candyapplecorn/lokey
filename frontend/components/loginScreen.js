@@ -12,7 +12,7 @@ class LoginScreen extends React.Component {
 
   constructor(props){
     super(props);
-    this.props.state = {username: "", password: ""};
+    this.state = {username: "", password: ""};
     this.login = this.login.bind(this);
   }
   //
@@ -27,9 +27,12 @@ class LoginScreen extends React.Component {
         }
         response.json().then(function(data) {
           console.log(data);
-          navigate('MainScreenNavigator')
+          navigate('Home')
         });
-      }
+      }).catch((reason) => {
+        console.log(reason)
+      })
+    navigate("Home");
   }
 
 
