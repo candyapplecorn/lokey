@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
 
   def index
-    @events = City.find(params[:city_id]).events
+    @events = Event.all
     render :index
   end
 
