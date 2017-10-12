@@ -16,8 +16,8 @@ const MainScreenNavigator = TabNavigator({
 
 // Similar to our switch statement for routes
 export const SimpleApp = StackNavigator({
-  Login: { screen: LoginScreen },
-  NewAccount: { screen: NewAccountScreen },
   Home: { screen: MainScreenNavigator },
+  NewAccount: { screen: NewAccountScreen },
+  Login: { screen: LoginScreen },
   EventShow: { screen: EventShowScreen }
 });
