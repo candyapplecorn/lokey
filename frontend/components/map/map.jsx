@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MarkerManager from '../../util/marker_manager';
 
-class Map extends React.Component {
+class ActivityMap extends React.Component {
+
+  constructor(props){
+    super(props);
+  }
 
   componentDidMount() {
+    this.props.fetchEvents();
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 },
       zoom: 13
@@ -12,6 +18,7 @@ class Map extends React.Component {
     const map = this.refs.map;
 
     this.map = new google.maps.Map(map, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map)
 
   }
   render() {
@@ -24,4 +31,4 @@ class Map extends React.Component {
   }
 }
 
-export default Map;
+export default ActivityMap;
