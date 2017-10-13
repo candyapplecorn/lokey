@@ -1,6 +1,6 @@
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Map from './map';
+import ActivityMap from './map';
 import { getEvents } from '../../actions/event_actions';
 
 const mapStateToProps = state => ({
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Map));
+)(ActivityMap));

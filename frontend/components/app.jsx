@@ -5,7 +5,7 @@ import {
   Switch,
   HashRouter
 } from 'react-router-dom';
-import MapContainer from './map/map';
+import MapContainer from './map/map_container';
 
 import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
