@@ -35,3 +35,6 @@ config/secrets.yml
 *mkv
 application.yml
 packager-info.json
+
+# Ignore application configuration
+/config/application.yml
