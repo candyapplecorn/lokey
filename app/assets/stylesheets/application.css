@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+ /*@import "reset.scss";*/
+
+  .logged-in-navbar, .logged-out-navbar {
+    display: flex;
+    justify-content: space-evenly;
+    background: dodgerblue;
+    height: 75px;
+    align-items: center;
+  }
+
+  .events-link, .create-event-link, .map-link, .sign-in-link, .profile {
+    text-decoration: none;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color .2s, color .2s
+  }
+
+  .events-link:hover, .create-event-link:hover, .map-link:hover, .sign-in-link:hover, .profile:hover {
+    text-decoration: none;
+    color: dodgerblue;
+    background-color: white;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color .2s, color .2s
+  }
