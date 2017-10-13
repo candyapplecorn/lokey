@@ -5,6 +5,7 @@ import {
   Switch,
   HashRouter
 } from 'react-router-dom';
+import Map from './map/map';
 
 import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -15,6 +16,7 @@ const App = () => (
     <Switch>
       <AuthRoute path="/sign-in" component={SessionFormContainer} />
       <AuthRoute path="/sign-up" component={SessionFormContainer} />
+      <Route path="/map" component={Map} />
     </Switch>
 </div>
 );
