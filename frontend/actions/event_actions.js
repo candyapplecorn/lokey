@@ -10,3 +10,7 @@ export const receiveAllEvents = events => ({
 export const getEvents = () => dispatch => (
   EventAPIUtil.fetchEvents().then(events => dispatch(receiveAllEvents(events)))
 );
+
+export const getEvent = () => dispatch => (
+  EventAPIUtil.fetchEvent().then(event => dispatch(receiveAllEvents(event)))
+);
