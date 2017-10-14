@@ -6,7 +6,8 @@
     "test": "./node_modules/mocha/bin/_mocha",
     "psql": "psql passport_local_knex",
     "kmrb": "knex migrate:rollback",
-    "kml": "knex migrate:latest"
+    "kml": "knex migrate:latest",
+    "knex:reset": "knex migrate:rollback; knex migrate:latest; knex seed:run --debug"
   },
   "dependencies": {
     "bcryptjs": "^2.3.0",
