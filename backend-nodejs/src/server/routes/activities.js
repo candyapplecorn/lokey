@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const GET = require('../controllers/activities').GET;
+const ActivitiesController = require('../controllers/activities');
 
 router.get('', (req, res, next)  => {
   // return authHelpers.createUser(req, res)
@@ -10,7 +10,7 @@ router.get('', (req, res, next)  => {
   //   })(req, res, next);
   // })
   // .catch((err) => { handleResponse(res, 500, 'error'); });
-  return GET().then((data) => {
+  return ActivitiesController.INDEX().then((data) => {
     res.status(200).json(data)
   })
   .catch(err => handleError(res, 500, err))
