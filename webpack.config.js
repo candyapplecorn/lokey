@@ -11,7 +11,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/, /\.js?$/],
+        test: [/\.jsx?$/, /\.js?$/, /\.png?$/],
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -22,6 +22,9 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
+    alias: {
+      'react': path.join(__dirname, 'node_modules', 'react')
+    },
     extensions: [".js", ".jsx", "*"]
   }
 };
