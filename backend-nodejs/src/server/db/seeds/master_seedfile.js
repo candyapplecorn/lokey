@@ -1,28 +1,41 @@
 const bcrypt = require('bcryptjs');
 
 exports.seed = (knex, Promise) =>
-
-knex('users').del()
+knex('activities').del()
 .then(() => {
-  const salt = bcrypt.genSaltSync();
-  const hash = bcrypt.hashSync('mochapie', salt);
-  return Promise.join(
-    knex('users').insert({
-      username: 'renaldo',
-      password: hash
-    })
-  );
+  const activities = [
+    'baseball', 'football', 'pottery', 'catch',
+    'banana juggling', 'unicycling', 'bicycling',
+    'programming', 'netflix', 'couch surfing'
+  ]
+  return Promise.all(
+    activities.map(name => knex('activities').insert({
+      name
+    })))
 })
-.then(() => {
-  const salt = bcrypt.genSaltSync();
-  const hash = bcrypt.hashSync('apples1gyy', salt);
-  return Promise.join(
-    knex('users').insert({
-      username: 'barbara',
-      password: hash
-    })
-  );
-})
+.then(() =>
+  knex('users').del()
+  .then(() => {
+    const salt = bcrypt.genSaltSync();
+    const hash = bcrypt.hashSync('mochapie', salt);
+    return Promise.join(
+      knex('users').insert({
+        username: 'renaldo',
+        password: hash
+      })
+    );
+  })
+  .then(() => {
+    const salt = bcrypt.genSaltSync();
+    const hash = bcrypt.hashSync('apples1gyy', salt);
+    return Promise.join(
+      knex('users').insert({
+        username: 'barbara',
+        password: hash
+      })
+    );
+  })
+)
 
 .then(() =>
 knex('coordinates').del()
