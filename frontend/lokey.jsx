@@ -7,7 +7,7 @@ import Root from './components/root';
 DEBUG! BLAME JOE!
 */
 import * as SessionActions from './actions/session_actions';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 // END DEBUG! THAT DARN BURGERMEISTER!
 
 document.addEventListener('DOMContentLoaded', () => {

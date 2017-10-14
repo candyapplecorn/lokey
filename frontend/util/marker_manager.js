@@ -5,6 +5,8 @@ class MarkerManager {
     this.markers = {};
   }
 
+  // Activity is referring to an event in this file.
+
   updateMarkers(activities){
     const activitiesObject = {};
     activities.forEach(activity => {
@@ -22,14 +24,13 @@ class MarkerManager {
 
 
   createMarkerFromActivity(activity) {
-    const position = new google.maps.LatLng(activity.lat, activity.lng);
+    const position = new google.maps.LatLng(activity.coordinate.latitude, activity.coordinate.longitude);
     const marker = new google.maps.Marker({
       position,
       map: this.map,
       activityId: activity.id
     });
 
-    marker.addListener('click', () => this.handleClick(activity));
     this.markers[marker.activityId] = marker;
   }
 
