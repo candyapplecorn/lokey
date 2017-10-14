@@ -18,6 +18,8 @@ class EventMapIndex extends React.Component {
       key = {event.id}
       />
     );
+
+    return events;
   }
 
   render(){
