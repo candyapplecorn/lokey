@@ -1,6 +1,6 @@
 import React from 'react';
 
-import EventIndex from './event_map_index';
+import EventMapIndex from './event_map_index';
 import ActivityMap from './map';
 
 const Search = ({ events, updateFilter }) => (
@@ -14,7 +14,7 @@ const Search = ({ events, updateFilter }) => (
       />
     </div>
     <div className="right-half">
-    <EventIndex events={events} />
+    <EventMapIndex events={events} />
     </div>
   </div>
 );

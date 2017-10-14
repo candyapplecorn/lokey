@@ -18,6 +18,7 @@ class ActivityMap extends React.Component {
 
     this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
+    this.registerListeners();
 
   }
 
