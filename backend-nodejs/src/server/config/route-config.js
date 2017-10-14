@@ -6,11 +6,15 @@
 
     // *** routes *** //
     const routes = require('../routes/index');
-    const authRoutes = require('../routes/auth');
+    const usersRoutes = require('../routes/users');
+    const userRoutes = require('../routes/user');
+    const sessionRoutes = require('../routes/session');
 
     // *** register routes *** //
     app.use('/', routes);
-    app.use('/auth', authRoutes);
+    app.use('/api/users', usersRoutes);
+    app.use('/api/session', sessionRoutes);
+    // app.use('/', userRoutes);
 
   };
 
