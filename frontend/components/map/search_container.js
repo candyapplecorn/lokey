@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { asArray } from '../../reducers/selectors';
-import { updateBounds } from '../../actions/filter_actions';
+import { updateFilter } from '../../actions/filter_actions';
 import Search from './search';
 
 const mapStateToProps = state => ({
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateBounds: (bounds) => dispatch(updateBounds(bounds))
+  updateFilter: (bounds) => dispatch(updateFilter(bounds))
 });
 
 export default withRouter(connect(
