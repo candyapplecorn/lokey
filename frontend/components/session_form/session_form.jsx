@@ -38,9 +38,9 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.formType === 'sign-in') {
-      return (<div className="Links"><span>Sign In</span><Link to="/sign-up" onClick={this.clearErrors}>Create New Account</Link></div>);
+      return (<div className="Links"><span className="session-active">Sign In</span><Link className="session-link" to="/sign-up" onClick={this.clearErrors}>Create New Account</Link></div>);
     } else {
-      return (<div className="Links"><Link to="/sign-in" onClick={this.clearErrors}>Sign In</Link><span>Create New Account</span></div>);
+      return (<div className="Links"><Link className="session-link" to="/sign-in" onClick={this.clearErrors}>Sign In</Link><span className="session-active">Create New Account</span></div>);
     }
   }
 
@@ -99,6 +99,7 @@ class SessionForm extends React.Component {
                 onChange={this.update('email')}
                 placeholder="EMAIL"
                 />
+            <br/>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
@@ -107,8 +108,9 @@ class SessionForm extends React.Component {
               />
             <br/>
             <div className="submit">
-              <input type="submit" value={this.props.formType}/>
-              <button className="demoLogin" onClick={this.typeChars}>guest sign-in</button>
+                <input type="submit" value={this.props.formType}/>
+              <br />
+                <button className="demoLogin" onClick={this.typeChars}>guest sign-in</button>
             </div>
           </div>
         </form>
