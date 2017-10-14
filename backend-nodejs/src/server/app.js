@@ -12,9 +12,6 @@
   // *** express instance *** //
   const app = express();
 
-  // const livereload = require('express-livereload');
-  // livereload(app, { watchDir: process.cwd() }); // can change
-
   // *** config *** //
   appConfig.init(app, express);
   routeConfig.init(app);
