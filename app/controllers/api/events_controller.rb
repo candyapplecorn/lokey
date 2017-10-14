@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = bounds ? Event.in_bounds(bounds) : Event.all
     render :index
   end
 
@@ -35,6 +35,10 @@ class Api::EventsController < ApplicationController
     else
       render json: @event.errors.full_messages, status: 401
     end
+  end
+
+  def bounds
+    params[:bounds]
   end
 
   private
