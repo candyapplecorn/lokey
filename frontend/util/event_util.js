@@ -1,6 +1,7 @@
-export const fetchEvents = () => (
+export const fetchEvents = (filters) => (
   $.ajax({
     method: 'GET',
-    url: '/api/events'
+    url: '/api/events',
+    filters
   })
 );
