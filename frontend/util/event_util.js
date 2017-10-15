@@ -1,7 +1,14 @@
-export const fetchEvents = (filters) => (
+export const fetchEvents = bounds => (
   $.ajax({
     method: 'GET',
     url: '/api/events',
-    filters
+    data: {bounds}
+  })
+);
+
+export const fetchEvent = eventId => (
+  $.ajax({
+    method: 'GET',
+    url: `api/spots/${eventId}`
   })
 );
