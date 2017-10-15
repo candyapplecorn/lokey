@@ -69,4 +69,20 @@ Promise.all([
   })
 ]))
 
+.then(() =>
+Promise.all([
+  knex('events').insert({
+    coordinate_id: 1
+  , host_id: 1
+  , activity_id: 1
+  , description: "A cool seeded event!"
+  })
+, knex('events').insert({
+    coordinate_id: 2
+  , host_id: 2
+  , activity_id: 2
+  , description: "A great seeded event."
+  })
+]))
+
 ;
