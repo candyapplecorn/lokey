@@ -35,6 +35,16 @@ knex('activities').del()
       })
     );
   })
+  .then(() => {
+    const salt = bcrypt.genSaltSync();
+    const hash = bcrypt.hashSync('demosarecool', salt);
+    return Promise.join(
+      knex('users').insert({
+        username: 'demoUser',
+        password: hash
+      })
+    );
+  })
 )
 
 .then(() =>
@@ -94,5 +104,22 @@ Promise.all([
   , description: "The best event."
   })
 ]))
+
+.then(() =>
+  Promise.all([
+    knex('interests').insert({
+      user_id: 3,
+      activity_id: 5
+    })
+  , knex('interests').insert({
+      user_id: 3,
+      activity_id: 4
+    })
+  , knex('interests').insert({
+      user_id: 3,
+      activity_id: 1
+    })
+  ])
+)
 
 ;
