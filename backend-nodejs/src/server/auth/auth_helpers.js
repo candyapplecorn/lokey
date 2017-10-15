@@ -6,6 +6,8 @@ function comparePass(userPassword, databasePassword) {
 }
 
 function createUser(req, res) {
+    console.log(req.body)
+    console.log(req.body.user)
   return handleErrors(req)
   .then(() => {
     const salt = bcrypt.genSaltSync();
@@ -18,18 +20,18 @@ function createUser(req, res) {
     .returning('*');
   })
   .catch((err) => {
-    res.status(400).json({status: err.message});
+    res.status(400).json([err.message]);
   });
 }
 
 function loginRequired(req, res, next) {
-  if (!req.user) return res.status(401).json({status: 'Please log in'});
+  if (!req.user) return res.status(401).json(['Please log in']);
   return next();
 }
 
 function loginRedirect(req, res, next) {
   if (req.user) return res.status(401).json(
-    {status: 'You are already logged in'});
+    ['You are already logged in']);
   return next();
 }
 
@@ -38,13 +40,13 @@ function handleErrors(req) {
   const MIN_PASSWORD_LENGTH = 6;
   return new Promise((resolve, reject) => {
     if (req.body.username.length < MIN_USERNAME_LENGTH)
-      reject({
-        message: `Username must be longer than ${MIN_USERNAME_LENGTH} characters`
-      });
+      reject(
+        [`Username must be longer than ${MIN_USERNAME_LENGTH} characters`]
+      );
     else if (req.body.password.length < 6)
-      reject({
-        message: `Password must be longer than ${MIN_PASSWORD_LENGTH} characters`
-      });
+      reject(
+        [`Password must be longer than ${MIN_PASSWORD_LENGTH} characters`]
+      );
     else
       resolve();
   });

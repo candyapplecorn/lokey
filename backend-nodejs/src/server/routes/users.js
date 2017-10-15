@@ -15,7 +15,7 @@ router.post('', authHelpers.loginRedirect, (req, res, next)  => {
         // Set the server's session's currentUser field to this user.
         // setCurrentUser(req, user)
         // Unnecessary cuz passport sets req.user
-        console.log(req.user)
+        // console.log(req.user)
       }
     })(req, res, next);
   })
