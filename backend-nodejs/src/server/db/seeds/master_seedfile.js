@@ -42,15 +42,19 @@ knex('coordinates').del()
 .then(() => Promise.all([
   knex('coordinates').insert({
     latitude: 37.5,
-    longitude: 124.6
+    longitude: -124.6
   })
   , knex('coordinates').insert({
     latitude: 57.5,
-    longitude: 184.6
+    longitude: -184.6
   })
   , knex('coordinates').insert({
     latitude: 36.5,
-    longitude: 125.6
+    longitude: -125.6
+  })
+  , knex('coordinates').insert({
+    latitude: 37.7763,
+    longitude: -122.4328
   })
 ]))
 )
@@ -82,6 +86,12 @@ Promise.all([
   , host_id: 2
   , activity_id: 2
   , description: "A great seeded event."
+  })
+, knex('events').insert({
+    coordinate_id: 4
+  , host_id: 2
+  , activity_id: 5
+  , description: "The best event."
   })
 ]))
 
