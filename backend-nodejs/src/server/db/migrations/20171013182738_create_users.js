@@ -6,4 +6,5 @@ exports.up = (knex, Promise) =>
     table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
   });
 
-exports.down = (knex, Promise) => knex.schema.dropTable('users');
+//exports.down = (knex, Promise) => knex.schema.dropTable('users');
+exports.down = (knex, Promise) => knex.raw('DROP TABLE IF EXISTS users CASCADE')
