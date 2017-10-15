@@ -12,16 +12,22 @@ router.get('/', function (req, res, next) {
     id = req.user.id;
 
   const results = knex.raw(`
-    SELECT *
-    FROM users
-    WHERE id = ?
+    SELECT a.name AS activity, a.id AS activity_id
+    FROM users u
+    JOIN interests i
+    ON i.user_id = u.id
+    JOIN activities a
+    ON i.activity_id = a.id
+    WHERE u.id = ?
   `, [id])
   .then(results => results.rows)
   .then(row => {
-    console.log("row is:");
-    console.log(row);
+    ro.currentUser = req.user ? JSON.stringify({
+      username,
+      id,
+      activities: row//.map(r => r.activity)
+    }) : 'null'; // NEEDED FOR BOOTSTRAPPING THE CURRENT USER
 
-    ro.currentUser = JSON.stringify({ username, id, results, row }) || {}; // NEEDED FOR BOOTSTRAPPING THE CURRENT USER
     res.render('index', ro);
   })
   .catch(err => console.log(err))
