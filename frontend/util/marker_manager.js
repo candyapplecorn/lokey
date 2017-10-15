@@ -7,36 +7,36 @@ class MarkerManager {
 
   // Activity is referring to an event in this file.
 
-  updateMarkers(activities){
-    const activitiesObject = {};
-    activities.forEach(activity => {
-      activitiesObject[activity.id] = activity;
+  updateMarkers(events){
+    const eventsObject = {};
+    events.forEach(event => {
+      eventsObject[event.id] = event;
     });
 
-      activities
-      .filter(activity => !this.markers[activity.id])
-      .forEach(newActivity => this.createMarkerFromActivity(newActivity, this.handleClick));
-
+      events
+      .filter(event => !this.markers[event.id])
+      .forEach(newEvent=> this.createMarkerFromEvent(newEvent, this.handleClick));
     Object.keys(this.markers)
-      .filter(activityId => !activitiesObject[activityId])
-      .forEach((activityId) => this.removeMarker(this.markers[activityId]));
+      .filter(eventId => !eventsObject[eventId])
+      .forEach((eventId) => this.removeMarker(this.markers[eventId]));
   }
 
 
-  createMarkerFromActivity(activity) {
-    const position = new google.maps.LatLng(activity.coordinate.latitude, activity.coordinate.longitude);
+  createMarkerFromEvent(event) {
+    const position = new google.maps.LatLng(event.lat, event.lng);
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      activityId: activity.id
+      eventId: event.id
     });
 
-    this.markers[marker.activityId] = marker;
+    marker.addListener('click', () => this.handleClick(event));
+    this.markers[marker.eventId] = marker;
   }
 
   removeMarker(marker) {
-    this.markers[marker.activityId].setMap(null);
-    delete this.markers[marker.activityId];
+    this.markers[marker.eventId].setMap(null);
+    delete this.markers[marker.eventId];
   }
 }
 
