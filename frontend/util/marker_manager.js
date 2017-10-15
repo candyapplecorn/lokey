@@ -16,7 +16,6 @@ class MarkerManager {
       events
       .filter(event => !this.markers[event.id])
       .forEach(newEvent=> this.createMarkerFromEvent(newEvent, this.handleClick));
-
     Object.keys(this.markers)
       .filter(eventId => !eventsObject[eventId])
       .forEach((eventId) => this.removeMarker(this.markers[eventId]));
@@ -24,7 +23,7 @@ class MarkerManager {
 
 
   createMarkerFromEvent(event) {
-    const position = new google.maps.LatLng(event.latitude, event.longitude);
+    const position = new google.maps.LatLng(event.lat, event.lng);
     const marker = new google.maps.Marker({
       position,
       map: this.map,
