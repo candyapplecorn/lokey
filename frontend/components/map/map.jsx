@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../util/marker_manager';
 
 class ActivityMap extends React.Component {
@@ -17,7 +18,7 @@ class ActivityMap extends React.Component {
     const map = this.refs.map;
 
     this.map = new google.maps.Map(map, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.singleEvent) {
       this.props.getEvent(this.props.eventId);
     }else {
@@ -71,4 +72,4 @@ class ActivityMap extends React.Component {
   }
 }
 
-export default ActivityMap;
+export default withRouter(ActivityMap);
