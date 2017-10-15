@@ -1,18 +1,20 @@
-export const login = user => (
-  $.ajax({
+export const login = user => {
+  const { username, password } = user; // Express compatibility
+  return $.ajax({
     method: 'POST',
     url: '/api/session',
-    data: {user}
+    data: { user, username, password }
   })
-);
+};
 
-export const signup = user => (
-  $.ajax({
+export const signup = user => {
+  const { username, password } = user; // Express compatibility
+  return $.ajax({
     method: 'POST',
     url: '/api/users',
-    data: {user}
+    data: { user, username, password }
   })
-);
+};
 
 export const logout = () => (
   $.ajax({
