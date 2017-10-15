@@ -1,7 +1,6 @@
 class MarkerManager {
-  constructor(map, handleClick){
+  constructor(map){
     this.map = map;
-    this.handleClick = handleClick;
     this.markers = {};
   }
 
@@ -29,8 +28,19 @@ class MarkerManager {
       map: this.map,
       eventId: event.id
     });
+    const contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            `<h1 id="firstHeading" class="firstHeading">${event.activity}</h1>`+
+            '<div id="bodyContent">'+
+            `<p> ${event.description}</p>` +
+            '</div>'+
+            '</div>';
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
 
-    marker.addListener('click', () => this.handleClick(event));
+    marker.addListener('click', () => (infowindow.open(this.map, marker)));
     this.markers[marker.eventId] = marker;
   }
 
