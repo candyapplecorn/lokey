@@ -29,6 +29,17 @@ router.post('', authHelpers.loginRequired, (req, res, next)  => {
   .catch(err => handleError(res, 500, err))
 });
 
+//            vv req.params.id
+router.delete('/:id', (req, res, next) => {
+  return EventsController.DESTROY(req).then((data) => {
+
+    /* Take the array of events that's returned and turn it
+       into a hash where the events' ids are the hash's keys */
+    res.status(200).json(data)
+  })
+  .catch(err => handleError(res, 500, err))
+})
+
 // function handleResponse(res, code, statusMsg) {
 //   res.status(code).json({status: statusMsg});
 // }
