@@ -7,6 +7,8 @@
   const cookieParser = require('cookie-parser');
   const bodyParser = require('body-parser');
   const session = require('express-session');
+  const pg = require('pg');
+  const pgSession = require('connect-pg-simple')(session);
   const flash = require('connect-flash');
   const morgan = require('morgan');
   const nunjucks = require('nunjucks');
@@ -27,21 +29,41 @@
     // *** view engine *** //
     nunjucks.configure(viewFolders, {
       express: app,
-      autoescape: true
+      autoescape: false // DANGEROUS! 
     });
     app.set('view engine', 'html');
 
     app.use(cookieParser());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
+
     // uncomment if using express-session
+    var pgPool = new pg.Pool({
+      // Insert pool options here
+      host: 'localhost',
+      database: 'passport_local_knex'
+    });
     app.use(session({
+      store: new pgSession({
+        pool: pgPool,
+        tableName: 'sessions'
+      }),
       secret: process.env.SECRET_KEY,
-      resave: false,
-      saveUninitialized: true
+      resave: true,
+      saveUninitialized: true,
+      cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
     }));
     app.use(passport.initialize());
-    app.use(passport.session());
+    app.use(passport.session({
+      store: new pgSession({
+        pool: pgPool,
+        tableName: 'sessions'
+      }),
+      secret: process.env.SECRET_KEY,
+      resave: true,
+      saveUninitialized: true,
+      cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+    }));
     app.use(flash());
 
     // *** app middleware *** //

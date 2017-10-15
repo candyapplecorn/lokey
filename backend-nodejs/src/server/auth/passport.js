@@ -9,7 +9,12 @@ module.exports = () => {
 
   passport.deserializeUser((id, done) => {
     knex('users').where({id}).first()
-    .then((user) => { done(null, user); })
+    .then((user) => {
+      console.log('deserializeUser')
+      console.log(user)
+      
+      done(null, user);
+    })
     .catch((err) => { done(err, null); });
   });
 

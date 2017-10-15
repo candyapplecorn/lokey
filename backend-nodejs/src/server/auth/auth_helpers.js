@@ -56,13 +56,6 @@ function pingUser(res, code, user){
   res.status(code).json(user);
 }
 
-function setCurrentUser(req, user){
-  if (req && req.session && !user)
-    delete req.session.currentUser
-  else if (req && req.session)
-    req.session.currentUser = user
-}
-
 module.exports = {
   comparePass,
   createUser,
