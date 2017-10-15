@@ -1,24 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const indexController = require('../controllers/index');
-/*
-
-THIS MUST SERVE THE BUNDLE JS
-
-*/
-
-
+// bootstrap current user?
 router.get('/', function (req, res, next) {
-  const renderObject = {};
-  renderObject.title = 'Welcome to Express!';
-  indexController.sum(2, 3, (error, results) => {
-    if (error) return next(error);
-    if (results) {
-      renderObject.sum = results;
-      res.render('index', renderObject);
-    }
-  });
+  const ro = {};
+  ro.title = 'Welcome to Express!';
+  res.render('index', ro);
 });
 
 module.exports = router;
