@@ -18,7 +18,7 @@ class ActivityMap extends React.Component {
     const map = this.refs.map;
 
     this.map = new google.maps.Map(map, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+    this.MarkerManager = new MarkerManager(this.map);
     if (this.props.singleEvent) {
       this.props.getEvent(this.props.eventId);
     }else {
@@ -50,10 +50,6 @@ class ActivityMap extends React.Component {
       this.handleClick(coords);
     });
   }
-
-  handleMarkerClick(event) {
-      this.props.history.push(`/events/${event.id}`);
-    }
 
   handleClick(coords) {
     this.props.history.push({
