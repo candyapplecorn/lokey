@@ -1,5 +1,5 @@
 import React from 'react';
-import EventMapIndexItem from 'react';
+import EventMapIndexItem from './event_map_index_item';
 
 class EventMapIndex extends React.Component {
 

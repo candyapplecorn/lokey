@@ -31,7 +31,7 @@ class ActivityMap extends React.Component {
       const targetEventKey = Object.keys(this.props.events)[0];
       const targetEvent = this.props.events[targetEventKey];
       this.MarkerManager.updateMarkers([targetEvent]);
-    }else {1
+    }else {
       this.MarkerManager.updateMarkers(this.props.events);
     }
   }
