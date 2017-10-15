@@ -4,7 +4,16 @@ const err = error => console.log(error);
 
 // Returns a promise, the .then will have the activities array
 function INDEX(){
-  return knex.select('*').from('events')
+  // return knex.select('*').from('events')
+
+  // The RoR jbuilder and React utils expected a different format, so
+  // rather than foreign keys, a more formatted response id desired:
+  return knex.raw(`
+    SELECT e.*, c.latitude AS lat, c.longitude AS lng, a.name AS activity
+    FROM events e
+    JOIN coordinates c ON c.id = e.coordinate_id
+    JOIN activities  a ON a.id = e.activity_id
+  `).catch(err)
 }
 
 function CREATE({ user: currentUser, body: formEvent }){

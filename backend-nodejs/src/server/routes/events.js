@@ -11,9 +11,13 @@ router.get('', (req, res, next)  => {
   //   })(req, res, next);
   // })
   // .catch((err) => { handleResponse(res, 500, 'error'); });
-  return EventsController.INDEX().then((data) => {
+  return EventsController.INDEX().then(({ rows }) => { // previously, was "data". raw returns an object with "rows" key
     res.status(200).json(
-      data.reduce((acc, e) => ((acc[e.id] = e), acc), {})
+      rows.reduce((acc, e) => {
+        (acc[e.id] = e);
+        [e.lat, e.lng] = [e.lat, e.lng].map(Number)
+        return acc;
+      }, {})
     );
   })
   .catch(err => handleError(res, 500, err))
