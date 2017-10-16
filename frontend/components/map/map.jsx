@@ -104,7 +104,7 @@ class ActivityMap extends React.Component {
     const description = this.state.description;
     return (
       <div>
-        <div style={{width: 500, height: 500}}
+        <div className="map"
           id='map'
           ref="map">
         </div>
