@@ -79,7 +79,8 @@ class ActivityMap extends React.Component {
     }
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.createEvent({
       lat: this.state.lat,
       lng: this.state.lng,
@@ -114,7 +115,7 @@ class ActivityMap extends React.Component {
           onRequestClose={this.close}>
           <a className="close-modal" onClick={this.close}>x</a>
           <h1 className="modal-title">Add Event</h1>
-          <form onSubmit={() => this.handleSubmit()}>
+          <form onSubmit={(e) => this.handleSubmit(e)}>
             <label>Activity:
               <select onChange={this.update('activity')}>
                 <option disabled="true" selected="true">Please Select an Option</option>
