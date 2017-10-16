@@ -7,12 +7,14 @@
   const cookieParser = require('cookie-parser');
   const bodyParser = require('body-parser');
   const session = require('express-session');
+  const Pool = require('pg-pool');
   const pg = require('pg');
   const pgSession = require('connect-pg-simple')(session);
   const flash = require('connect-flash');
   const morgan = require('morgan');
   const nunjucks = require('nunjucks');
   const passport = require('passport');
+  const url = require('url');
 
   const morganBody = require('morgan-body')
 
@@ -44,9 +46,28 @@
       host: 'localhost',
       database: 'passport_local_knex'
     });
+
+    console.log("database url:")
+    console.log(process.env.DATABASE_URL)
+    if (process.env.NODE_ENV == 'production'){
+      var params = url.parse(process.env.DATABASE_URL);
+      var auth = params.auth.split(':');
+
+      var pconfig = {
+        user: auth[0],
+        password: auth[1],
+        host: params.hostname,
+        port: params.port,
+        database: params.pathname.split('/')[1],
+        ssl: true
+      };
+    }
+
+    const pool = process.env.NODE_ENV !== 'production' ? pgPool : new Pool(pconfig);
+
     app.use(session({
       store: new pgSession({
-        pool: pgPool,
+        pool,
         tableName: 'sessions'
       }),
       secret: process.env.SECRET_KEY,
@@ -57,7 +78,7 @@
     app.use(passport.initialize());
     app.use(passport.session({
       store: new pgSession({
-        pool: pgPool,
+        pool,
         tableName: 'sessions'
       }),
       secret: process.env.SECRET_KEY,
