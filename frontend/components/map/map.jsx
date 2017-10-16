@@ -114,29 +114,33 @@ class ActivityMap extends React.Component {
           style={modalStyle}
           onRequestClose={this.close}>
           <a className="close-modal" onClick={this.close}>x</a>
-          <h1 className="modal-title">Add Event</h1>
-          <form onSubmit={(e) => this.handleSubmit(e)}>
-            <label>Activity:
-              <select onChange={this.update('activity')}>
-                <option disabled="true" selected="true">Please Select an Option</option>
-                {this.options()}
-              </select>
-            </label>
-            <label>Description:
-              <textarea
-                onChange={this.update('description')}
-                value={description}>
-                </textarea>
-            </label>
-            <label>Latitude:
-              <input value={this.state.lat}
-                onChange={this.update('lat')}></input>
-            </label>
-            <label>Longitude:
-              <input value={this.state.lng}
-                onChange={this.update('lng')}></input>
-            </label>
-            <input type="submit"></input>
+          <h1 className="modal-title">Add Activity</h1>
+          <form className="create-activity-form" onSubmit={(e) => this.handleSubmit(e)}>
+            <div className="create-activity-form-top">
+              <label>Activity:
+                <select className="map-activity-select" onChange={this.update('activity')}>
+                  <option disabled="true" selected="true">Please Select an Option</option>
+                  {this.options()}
+                </select>
+              </label>
+              <label>Description:
+                <textarea
+                  onChange={this.update('description')}
+                  value={description}>
+                  </textarea>
+              </label>
+            </div>
+            <div className="create-activity-form-bottom">
+              <label>Latitude:
+                <input value={this.state.lat}
+                  onChange={this.update('lat')}></input>
+              </label>
+              <label>Longitude:
+                <input value={this.state.lng}
+                  onChange={this.update('lng')}></input>
+              </label>
+            </div>
+            <input className="create-activity-form-submit" type="submit" value="create"></input>
           </form>
         </Modal>
       </div>

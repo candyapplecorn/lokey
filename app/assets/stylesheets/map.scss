@@ -21,3 +21,64 @@ h5 {
   font-weight: bolder;
   text-align: center;
 }
+
+.close-modal {
+  border: 2px solid dodgerblue;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: dodgerblue;
+  background-color: white;
+  border-color: dodgerblue;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: color .2s, background-color .2s, border .2s;
+}
+
+.close-modal:hover {
+  background-color: dodgerblue;
+  color: white;
+  transition: color .2s, background-color .2s, border .2s;
+  cursor: pointer;
+}
+
+.modal-title {
+  text-transform: lowercase;
+  color: white;
+  background: dodgerblue;
+  border: 2px solid dodgerblue;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 25px;
+}
+
+.map-activity-select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   border: 2px solid dodgerblue;
+   outline: none;
+   font-family: 'Nunito', sans-serif
+}
+
+option, label, textarea, input {
+  font-family: 'Nunito', sans-serif;
+}
+
+.create-activity-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: inherit;
+  width: 500px;
+}
