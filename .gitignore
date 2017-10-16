@@ -39,3 +39,4 @@ packager-info.json
 # Ignore application configuration
 /config/application.yml
 access.log
+.env
