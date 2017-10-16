@@ -14,13 +14,142 @@
  *= require_self
  */
 
-/*@import "reset.scss";*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-/* ====== */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-/* Navbar */
+/* HTML5 display-role reset for older browsers */
 
-/* ====== */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 .navbar-footer {
   position: absolute;
@@ -48,12 +177,15 @@
 .create-event-link,
 .map-link,
 .sign-in-link,
+.logout,
 .profile,
 .session-link,
 .session-link:hover,
 .session-active {
   text-decoration: none;
+  font-size: 1em;
   color: white;
+  background-color: dodgerblue;
   font-family: 'Nunito', sans-serif;
   border: 2px solid;
   padding: 10px;
@@ -64,9 +196,11 @@
 .events-link:hover,
 .create-event-link:hover,
 .map-link:hover,
+.logout:hover,
 .sign-in-link:hover,
 .profile:hover {
   text-decoration: none;
+  font-size: 1em;
   color: dodgerblue;
   background-color: white;
   font-family: 'Nunito', sans-serif;
@@ -74,20 +208,12 @@
   padding: 10px;
   border-radius: 5px;
   transition: background-color .2s, color .2s;
+  cursor: pointer;
 }
 
 .logo {
-  height: 65px;
-  border-radius: 5px;
-  background-color: white;
-  padding: 5px;
+  height: 80%;
 }
-
-/* ============ */
-
-/* Session form */
-
-/* ============ */
 
 .session-link {
   color: white;
@@ -281,5 +407,71 @@
   color: dodgerblue;
   background-color: white;
   transition: border .2s, color .2s, background-color .2s;
+  cursor: pointer;
+}
+
+.map {
+  width: 100vw;
+  height: 90vh;
+}
+
+h5 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 30px;
+  position: absolute;
+  z-index: 3;
+  color: #595959;
+  margin-top: 10px;
+}
+
+.left-half {
+  display: flex;
+  justify-content: center;
+}
+
+.firstHeading {
+  font-weight: bolder;
+  text-align: center;
+}
+
+.mapContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Modal Styling
+
+.ReactModal__Content {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+}
+
+.event-form input[type="text"],
+.event-form textarea,
+.event-form select {
+  width: 100%;
+}
+
+.submit {
+  margin-left: 2px;
+  width: 50%;
+}
+
+.modal-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.close-modal {
+  font-weight: 200;
+  align-self: flex-start;
+}
+
+.event-form textarea {
+  height: 200px;
+}
+
+.close-modal:hover {
   cursor: pointer;
 }
