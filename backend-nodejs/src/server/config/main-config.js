@@ -29,12 +29,13 @@
     // *** view engine *** //
     nunjucks.configure(viewFolders, {
       express: app,
-      autoescape: false // DANGEROUS! 
+      autoescape: false // DANGEROUS!
     });
     app.set('view engine', 'html');
 
     app.use(cookieParser());
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded()); // Rails just makes this werk, but I had to figure this out!
     app.use(bodyParser.urlencoded({ extended: false }));
 
     // uncomment if using express-session

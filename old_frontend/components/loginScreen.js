@@ -24,11 +24,11 @@ class LoginScreen extends React.Component {
     getUser(this.state.username, this.state.password)
       .then((response) => {
         if (response.status !== 200){
-          console.log('Looks like there was a problem. Status Code: ' + response.status);
+          //con//sole.log('Looks like there was a problem. Status Code: ' + response.status);
           return;
         }
         response.json().then(function(data) {
-          console.log(data);
+          //co//nsole.log(data);
           navigate('MainScreenNavigator')
         });
       })
@@ -55,7 +55,7 @@ class LoginScreen extends React.Component {
 
       this.setState({ user: data })
   } catch (e) {
-    console.log(e)
+    //con//sole.log(e)
     throw e;
   }
 }

@@ -1,6 +1,5 @@
 exports.up = (knex, Promise) =>
   knex.schema.createTable('coordinates', table => {
-    console.log(Object.keys(table));
     table.increments();
     table.decimal('longitude').notNullable();
     table.decimal('latitude').notNullable();
