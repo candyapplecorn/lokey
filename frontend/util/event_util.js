@@ -1,14 +1,22 @@
-export const fetchEvents = bounds => (
-  $.ajax({
+export const fetchEvents = bounds => {
+  return $.ajax({
     method: 'GET',
     url: '/api/events',
-    data: {bounds}
-  })
-);
+    data: { bounds }
+  });
+};
 
 export const fetchEvent = eventId => (
   $.ajax({
     method: 'GET',
-    url: `api/spots/${eventId}`
+    url: `api/events/${eventId}`
   })
 );
+
+export const createEvent = event => {
+  return $.ajax({
+    method: "POST",
+    url: "api/events",
+    data: { event }
+  });
+};

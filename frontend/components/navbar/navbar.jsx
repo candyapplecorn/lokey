@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 const sessionLinks = () => (
   <div className="navbar-div">
     <nav className="logged-out-navbar">
-      <img className="logo" src="http://lokey.gr/wp-content/uploads/2016/05/lokey_logo_300.png"></img>
+      <img className="logo" src="http://res.cloudinary.com/daesquwob/image/upload/v1508121498/LoKey_logo_p9vf9v.png"></img>
       <div className="navbar-links">
         <Link className="events-link" to="/events">events</Link>
-        <Link className="create-event-link" to="/sign-in">create event</Link>
         <Link className="map-link" to="/map">map</Link>
         <Link className="sign-in-link" to="/sign-up">sign up</Link>
       </div>
@@ -18,10 +17,9 @@ const sessionLinks = () => (
 const loggedInSessionLinks = (currentUser, logout) => (
   <div className="navbar-div">
     <nav className="logged-in-navbar">
-      <img src="http://lokey.gr/wp-content/uploads/2016/05/lokey_logo_300.png"></img>
+      <img className="logo" src="http://res.cloudinary.com/daesquwob/image/upload/v1508121498/LoKey_logo_p9vf9v.png"></img>
       <div className="navbar-links">
-        <Link className="events-link" to="/events">events</Link>
-        <Link className="create-event-link" to="/events">create event</Link>
+        <Link className="events-link" to="/events">your events</Link>
         <Link className="map-link" to="/map">map</Link>
         <Link className="profile" to="/profile">profile</Link>
       </div>

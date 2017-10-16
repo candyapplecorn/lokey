@@ -1,0 +1,46 @@
+.navbar-footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.logged-in-navbar, .logged-out-navbar {
+  display: flex;
+  justify-content: space-around;
+  background: dodgerblue;
+  height: 75px;
+  align-items: center;
+}
+
+.navbar-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.events-link, .create-event-link, .map-link, .sign-in-link, .profile,
+.session-link, .session-link:hover, .session-active {
+  text-decoration: none;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color .2s, color .2s
+}
+
+.events-link:hover, .create-event-link:hover, .map-link:hover, .sign-in-link:hover, .profile:hover {
+  text-decoration: none;
+  color: dodgerblue;
+  background-color: white;
+  font-family: 'Nunito', sans-serif;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color .2s, color .2s
+}
+
+.logo {
+  height: 80%;
+}
