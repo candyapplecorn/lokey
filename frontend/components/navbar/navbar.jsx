@@ -20,7 +20,7 @@ const loggedInSessionLinks = (currentUser, logout) => (
     <nav className="logged-in-navbar">
       <img className="logo" src="http://res.cloudinary.com/daesquwob/image/upload/v1508121498/LoKey_logo_p9vf9v.png"></img>
       <div className="navbar-links">
-        <Link className="events-link" to="/events">your events</Link>
+        <Link className="events-link" to="/events">events</Link>
         <Link className="map-link" to="/map">map</Link>
         <Link className="profile" to="/profile">profile</Link>
         <button className="logout" onClick={logout}>log out</button>
