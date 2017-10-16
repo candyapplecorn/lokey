@@ -70,7 +70,7 @@ class ActivityMap extends React.Component {
   }
 
   handleClick(coords) {
-    if (Object.keys(this.props.currentUser).length > 0){
+    if (this.props.currentUser){
       this.setState({modalIsOpen: true});
       this.setState({lat: coords.lat});
       this.setState({lng: coords.lng});
