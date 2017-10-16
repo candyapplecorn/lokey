@@ -13,8 +13,7 @@ class Api::EventsController < ApplicationController
   def create
     @event = Event.new(host_id: current_user.id, activity: Activity.find_by(name: event_params[:activity]), description: event_params[:description], coordinate: Coordinate.create({latitude: event_params[:lat], longitude: event_params[:lng]}))
     if @event.save
-      @events = bounds ? Event.in_bounds(bounds) : Event.all
-      render :index
+      render :show
     else
       render json: @event.errors.full_messages, status: 422
     end

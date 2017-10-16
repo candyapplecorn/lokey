@@ -87,6 +87,11 @@ class ActivityMap extends React.Component {
       activity: this.state.activity,
       description: this.state.description
     });
+    const { north, south, east, west } = this.map.getBounds().toJSON();
+    const bounds = {
+      northEast: { lat: north, lng: east },
+      southWest: { lat: south, lng: west } };
+    this.props.updateFilter(bounds);
     this.close();
   }
 
@@ -103,7 +108,7 @@ class ActivityMap extends React.Component {
   render() {
     const description = this.state.description;
     return (
-      <div>
+      <div className="mapContainer">
         <div className="map"
           id='map'
           ref="map">
@@ -115,27 +120,35 @@ class ActivityMap extends React.Component {
           onRequestClose={this.close}>
           <a className="close-modal" onClick={this.close}>x</a>
           <h1 className="modal-title">Add Event</h1>
-          <form onSubmit={(e) => this.handleSubmit(e)}>
+          <form onSubmit={(e) => this.handleSubmit(e)} className="event-form">
             <label>Activity:
+              <br></br>
               <select onChange={this.update('activity')}>
                 <option disabled="true" selected="true">Please Select an Option</option>
                 {this.options()}
               </select>
             </label>
+            <br></br>
             <label>Description:
+              <br></br>
               <textarea
                 onChange={this.update('description')}
                 value={description}>
                 </textarea>
             </label>
+            <br></br>
             <label>Latitude:
-              <input value={this.state.lat}
+              <br></br>
+              <input type="text" value={this.state.lat}
                 onChange={this.update('lat')}></input>
             </label>
+            <br></br>
             <label>Longitude:
-              <input value={this.state.lng}
+              <br></br>
+              <input type="text" value={this.state.lng}
                 onChange={this.update('lng')}></input>
             </label>
+            <br></br>
             <input type="submit"></input>
           </form>
         </Modal>

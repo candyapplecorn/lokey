@@ -21,3 +21,17 @@ h5 {
   font-weight: bolder;
   text-align: center;
 }
+
+.mapContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ReactModal__Content {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.event-form input, .event-form textarea, .event-form select {
+  width: 100%;
+}
