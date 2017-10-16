@@ -16,7 +16,7 @@ class Search extends React.Component {
     return(
       <div className="user-pane">
         <div className="left-half">
-          <h5>Click Map to Add Activity!</h5>
+          <h5>Click Map to Add an Activity!</h5>
           <ActivityMap
             events={this.props.events}
             updateFilter={this.props.updateFilter}
@@ -26,8 +26,6 @@ class Search extends React.Component {
             createEvent={this.props.createEvent}
             currentUser={this.props.currentUser}
           />
-        </div>
-        <div className="right-half">
         </div>
       </div>
     );

@@ -70,7 +70,7 @@ class ActivityMap extends React.Component {
   }
 
   handleClick(coords) {
-    if (Object.keys(this.props.currentUser).length > 0){
+    if (this.props.currentUser){
       this.setState({modalIsOpen: true});
       this.setState({lat: coords.lat});
       this.setState({lng: coords.lng});
@@ -87,6 +87,11 @@ class ActivityMap extends React.Component {
       activity: this.state.activity,
       description: this.state.description
     });
+    const { north, south, east, west } = this.map.getBounds().toJSON();
+    const bounds = {
+      northEast: { lat: north, lng: east },
+      southWest: { lat: south, lng: west } };
+    this.props.updateFilter(bounds);
     this.close();
   }
 
@@ -103,7 +108,7 @@ class ActivityMap extends React.Component {
   render() {
     const description = this.state.description;
     return (
-      <div>
+      <div className="mapContainer">
         <div className="map"
           id='map'
           ref="map">
@@ -114,6 +119,7 @@ class ActivityMap extends React.Component {
           style={modalStyle}
           onRequestClose={this.close}>
           <a className="close-modal" onClick={this.close}>x</a>
+<<<<<<< HEAD
           <h1 className="modal-title">Add Activity</h1>
           <form className="create-activity-form" onSubmit={(e) => this.handleSubmit(e)}>
             <div className="create-activity-form-top">
@@ -143,6 +149,39 @@ class ActivityMap extends React.Component {
             </div>
             <br />
             <input className="create-activity-form-submit" type="submit" value="create"></input>
+=======
+          <h1 className="modal-title">Add Event</h1>
+          <form onSubmit={(e) => this.handleSubmit(e)} className="event-form">
+            <label>Activity:
+              <br></br>
+              <select onChange={this.update('activity')}>
+                <option disabled="true" selected="true">Please Select an Option</option>
+                {this.options()}
+              </select>
+            </label>
+            <br></br>
+            <label>Description:
+              <br></br>
+              <textarea
+                onChange={this.update('description')}
+                value={description}>
+                </textarea>
+            </label>
+            <br></br>
+            <label>Latitude:
+              <br></br>
+              <input type="text" value={this.state.lat}
+                onChange={this.update('lat')}></input>
+            </label>
+            <br></br>
+            <label>Longitude:
+              <br></br>
+              <input type="text" value={this.state.lng}
+                onChange={this.update('lng')}></input>
+            </label>
+            <br></br>
+            <input className="submit" type="submit"></input>
+>>>>>>> e94a802d5750082316ac7b04b3a01204e19e138b
           </form>
         </Modal>
       </div>
