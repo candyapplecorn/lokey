@@ -22,6 +22,7 @@ const loggedInSessionLinks = (currentUser, logout) => (
         <Link className="events-link" to="/events">your events</Link>
         <Link className="map-link" to="/map">map</Link>
         <Link className="profile" to="/profile">profile</Link>
+        <button className="logout" onClick={logout}>log out</button>
       </div>
     </nav>
   </div>
