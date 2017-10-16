@@ -10,16 +10,19 @@ const modalStyle = {
   },
   content : {
     position        : 'fixed',
-    width           : '60vw',
-    marginLeft      : '13vw',
+    width           : '300px',
     height          : 'auto',
+    left            : '40%',
     border          : '1px solid #ccc',
-    padding         : '20px 50px 50px 50px',
     overflow        : 'none',
     zIndex          : 11,
-    backgroundColor : 'rgba(255, 255, 255, 0.8)',
+    backgroundColor : 'rgba(68, 68, 68, 0.7)',
     display         : 'flex',
-    flexDirection   : 'column'
+    flexDirection   : 'column',
+    color           : 'white',
+    alignItems      : 'center',
+    justifyContent  : 'center',
+    lineHeight      : '30px'
 
   }
 };
