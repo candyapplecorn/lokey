@@ -28,6 +28,7 @@
     "passport-local": "^1.0.0",
     "passport-stub": "^1.1.1",
     "pg": "^7.3.0",
+    "pg-pool": "^2.0.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-dropzone": "^4.1.3",
