@@ -8,6 +8,7 @@ const runSequence = require('run-sequence');
 const nodemon = require('gulp-nodemon');
 const plumber = require('gulp-plumber');
 const server = require('tiny-lr')();
+const concatCss = require('gulp-concat-css');
 
 // *** config *** //
 
@@ -17,7 +18,8 @@ const paths = {
     path.join('src', '*.js')
   ],
   styles: [
-    path.join('src', 'client', 'css', '*.css')
+    path.join('src', 'client', 'css', '*.css'),
+    path.join('..', 'app', 'assets', 'stylesheets')
   ],
   views: [
     path.join('src', 'server', '**', '*.html'),
@@ -45,7 +47,9 @@ gulp.task('default', () => {
     // ['jscs'],
     ['lr'],
     ['nodemon'],
-    ['watch']
+    ['watch'],
+    ['styles'],
+    ['moreStyles']
   );
 });
 
@@ -73,6 +77,12 @@ gulp.task('styles', () => {
   return gulp.src(paths.styles)
     .pipe(plumber());
 });
+
+gulp.task('moreStyles', () =>
+  gulp.src('../app/assets/**/*.css')
+    .pipe(concatCss("bundle.css"))
+    .pipe(gulp.dest('src/client/css'))
+)
 
 gulp.task('views', () => {
   return gulp.src(paths.views)
