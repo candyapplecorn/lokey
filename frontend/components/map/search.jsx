@@ -16,15 +16,18 @@ class Search extends React.Component {
     return(
       <div className="user-pane">
         <div className="left-half">
-          <h5>Click Map to Add Acivity!</h5>
+          <h5>Click Map to Add Activity!</h5>
           <ActivityMap
             events={this.props.events}
             updateFilter={this.props.updateFilter}
+            getActivities={this.props.getActivities}
             singleEvent={false}
+            activities={this.props.activities}
+            createEvent={this.props.createEvent}
+            currentUser={this.props.currentUser}
           />
         </div>
         <div className="right-half">
-        <EventMapIndex events={this.props.events} />
         </div>
       </div>
     );
