@@ -11,13 +11,17 @@ class User < ApplicationRecord
       class_name: :Interest
 
     has_many :interests,
-    source: :activity,
-    through: :interestings
+      source: :activity,
+      through: :interestings
 
     has_many :hosted_events,
       primary_key: :id,
       foreign_key: :host_id,
       class_name: 'Event'
+
+    # has_many :events,
+    #   source: :activity,
+    #   through: :interestings
 
     has_one :coordinate, as: :locatable
 

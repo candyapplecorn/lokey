@@ -119,7 +119,6 @@ class ActivityMap extends React.Component {
           style={modalStyle}
           onRequestClose={this.close}>
           <a className="close-modal" onClick={this.close}>x</a>
-<<<<<<< HEAD
           <h1 className="modal-title">Add Activity</h1>
           <form className="create-activity-form" onSubmit={(e) => this.handleSubmit(e)}>
             <div className="create-activity-form-top">
@@ -149,7 +148,7 @@ class ActivityMap extends React.Component {
             </div>
             <br />
             <input className="create-activity-form-submit" type="submit" value="create"></input>
-=======
+          </form>
           <h1 className="modal-title">Add Event</h1>
           <form onSubmit={(e) => this.handleSubmit(e)} className="event-form">
             <label>Activity:
@@ -181,7 +180,6 @@ class ActivityMap extends React.Component {
             </label>
             <br></br>
             <input className="submit" type="submit"></input>
->>>>>>> e94a802d5750082316ac7b04b3a01204e19e138b
           </form>
         </Modal>
       </div>
