@@ -117,29 +117,31 @@ class ActivityMap extends React.Component {
           <h1 className="modal-title">Add Activity</h1>
           <form className="create-activity-form" onSubmit={(e) => this.handleSubmit(e)}>
             <div className="create-activity-form-top">
-              <label>Activity:
+              <label className="create-activity-activity-label">Activity:
                 <select className="map-activity-select" onChange={this.update('activity')}>
                   <option disabled="true" selected="true">Please Select an Option</option>
                   {this.options()}
                 </select>
               </label>
-              <label>Description:
+              <label className="create-activity-description-label">Description:
                 <textarea
                   onChange={this.update('description')}
                   value={description}>
                   </textarea>
               </label>
             </div>
+            <br />
             <div className="create-activity-form-bottom">
-              <label>Latitude:
+              <label className="create-activity-latitude-label">Latitude:
                 <input value={this.state.lat}
                   onChange={this.update('lat')}></input>
               </label>
-              <label>Longitude:
+              <label className="create-activity-longitude-label">Longitude:
                 <input value={this.state.lng}
                   onChange={this.update('lng')}></input>
               </label>
             </div>
+            <br />
             <input className="create-activity-form-submit" type="submit" value="create"></input>
           </form>
         </Modal>

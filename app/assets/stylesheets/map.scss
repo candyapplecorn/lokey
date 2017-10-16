@@ -76,9 +76,23 @@ option, label, textarea, input {
 }
 
 .create-activity-form {
+  display: inline-block;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // max-width: inherit;
+  // width: 500px;
+}
+
+.create-activity-form-top, .create-activity-form-bottom,
+.create-activity-description-label, .create-activity-activity-label,
+.create-activity-latitude-label, .create-activity-longitude-label {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: inherit;
-  width: 500px;
+  justify-content: space-evenly;
+}
+
+.create-activity-form-submit {
+
 }
