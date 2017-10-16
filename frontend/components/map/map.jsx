@@ -149,7 +149,7 @@ class ActivityMap extends React.Component {
                 onChange={this.update('lng')}></input>
             </label>
             <br></br>
-            <input type="submit"></input>
+            <input className="submit" type="submit"></input>
           </form>
         </Modal>
       </div>
