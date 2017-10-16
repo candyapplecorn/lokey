@@ -10,6 +10,11 @@ const plumber = require('gulp-plumber');
 const server = require('tiny-lr')();
 const concatCss = require('gulp-concat-css');
 
+var sass = require('gulp-sass');
+var concat = require('gulp-concat');
+var minify = require('gulp-minify-css');
+var merge = require('merge-stream');
+
 // *** config *** //
 
 const paths = {
@@ -49,7 +54,8 @@ gulp.task('default', () => {
     ['nodemon'],
     ['watch'],
     ['styles'],
-    ['moreStyles']
+    ['moreStyles'],
+    // ['cssAndScss']
   );
 });
 
@@ -100,6 +106,26 @@ gulp.task('lr', () => {
 gulp.task('nodemon', () => {
   return nodemon(nodemonConfig);
 });
+
+
+gulp.task('cssAndScss', function() {
+    var scssStream = gulp.src('../app/assets/**/*.scss')
+        .pipe(sass())
+        .pipe(concat('scss-files.scss'))
+    ;
+
+    var cssStream = gulp.src('../app/assets/**/*.css')
+        .pipe(concat('css-files.css'))
+    ;
+
+    var mergedStream = merge(scssStream, cssStream)
+        .pipe(concat('styles.css'))
+        .pipe(minify())
+        .pipe(gulp.dest('src/client/css'));
+
+    return mergedStream;
+});
+
 
 gulp.task('watch', () => {
   gulp.watch(paths.html, ['html']);
