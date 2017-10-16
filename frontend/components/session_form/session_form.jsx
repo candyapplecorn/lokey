@@ -36,11 +36,34 @@ class SessionForm extends React.Component {
     this.submit();
   }
 
+  buttonLabel() {
+    const form = this.props.formType.slice(5, 8);
+    return "Sign " + form;
+  }
+
   navLink() {
     if (this.props.formType === 'sign-in') {
-      return (<div className="Links"><span className="session-active">Sign In</span><Link className="session-link" to="/sign-up" onClick={this.clearErrors}>Create New Account</Link></div>);
+      return (<div className="Links"><span className="session-active">{this.buttonLabel()}</span><Link className="session-link" to="/sign-up" onClick={this.clearErrors}>Create New Account</Link></div>);
     } else {
       return (<div className="Links"><Link className="session-link" to="/sign-in" onClick={this.clearErrors}>Sign In</Link><span className="session-active">Create New Account</span></div>);
+    }
+  }
+
+  emailInput() {
+    if (this.props.formType === 'sign-up'){
+      return(
+        <div>
+        <br/>
+          <input type="text"
+            className="email-input"
+            value={this.state.email}
+            onChange={this.update('email')}
+            placeholder="EMAIL"
+            />
+        </div>
+      );
+    }else {
+      return <div></div>;
     }
   }
 
@@ -92,13 +115,7 @@ class SessionForm extends React.Component {
                 className={`${this.props.formType}-input`}
                 placeholder="USERNAME"
               />
-            <br/>
-              <input type="text"
-                className="email-input"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="EMAIL"
-                />
+            {this.emailInput()}
             <br/>
               <input type="password"
                 value={this.state.password}
@@ -108,9 +125,9 @@ class SessionForm extends React.Component {
               />
             <br/>
             <div className="submit">
-                <input className={`${this.props.formType}-submit`} type="submit" value={this.props.formType}/>
+                <input className={`${this.props.formType}-submit`} type="submit" value={`${this.buttonLabel()}`}/>
               <br />
-                <button className="demoLogin" onClick={this.typeChars}>guest sign-in</button>
+                <button className="demoLogin" onClick={this.typeChars}>{`guest ${this.buttonLabel()}`}</button>
             </div>
           </div>
         </form>
