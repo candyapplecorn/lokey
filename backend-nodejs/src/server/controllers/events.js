@@ -1,6 +1,7 @@
 const knex = require('../db/connection');
+const qs = require('querystring')
 
-const err = error => console.log(error);
+// const err = error => co/*n*/sole.log(error);
 
 // Returns a promise, the .then will have the activities array
 function INDEX(){
@@ -13,24 +14,60 @@ function INDEX(){
     FROM events e
     JOIN coordinates c ON c.id = e.coordinate_id
     JOIN activities  a ON a.id = e.activity_id
-  `).catch(err)
+  `)//.catch(err)
 }
 
-function CREATE({ user: currentUser, body: formEvent }){
-  console.log(formEvent)
-  const { coordinate: { lat, lng } } = formEvent
-  const { activityId: activity_id, description } = formEvent
-  const { id: host_id } = currentUser
+function CREATE(req){
+  if (req.body.event)
+    req.body = { ... req.body.event };
 
-  return knex('coordinates')
-  .insert({ latitude: lat, longitude: lng })
-  .returning("id")
+  let { user: currentUser, body: formEvent } = req
+
+  if (!formEvent.coordinate)
+    formEvent.coordinate = {
+      lat: formEvent.lat, lng: formEvent.lng
+    };
+
+  const { activity, coordinate: { lat, lng } } = formEvent;
+  let { activityId: activity_id, description } = formEvent;
+  const { id: host_id } = currentUser;
+
+  return knex('activities').select('id').where({ name: activity })
+  .then(activityArr => (activity_id = activityArr[0].id))
+  .then(() =>
+    knex('coordinates')
+    .insert({ latitude: lat, longitude: lng })
+    .returning("id")
+  )
+
   .then((coordinate_id) => {
-    console.log(coordinate_id)
     return knex('events')
     .insert({ host_id, activity_id, description, coordinate_id: Number(coordinate_id) })
     .returning("*")
-  }).catch(err)
+  })
+
+  .then((event) => {
+    return knex('activities').select('id').where({ name: activity })
+    .then(activity => {
+      return knex.raw(`
+        SELECT e.*, c.*, a.*, u.username, u.id, a.name AS activity
+        FROM events e
+        JOIN coordinates c ON c.id = e.coordinate_id
+        JOIN activities a  ON a.id = e.activity_id
+        JOIN users u       ON u.id = e.host_id
+        WHERE e.id = ?
+      `, [event[0].id])
+    })
+    .then(o => {
+      let event = o.rows[0];
+
+      let [lat, lng] = [event.latitude, event.longitude].map(Number)
+      event.lat = lat, event.lng = lng;
+
+      return event;
+    })
+  })
+  //.catch(err)
 }
 
 //                 vvvvvv MAKE SURE THAT'S SAME AS UTIL
@@ -52,7 +89,7 @@ function DESTROY({ params: { id: event_id }}){
   .from('events')
   .where({ id: event_id })
   .then(event => { // coordinate_id, host_id, activity_id
-    console.log(event)
+  // ???
   }).catch(err)*/
 }
 

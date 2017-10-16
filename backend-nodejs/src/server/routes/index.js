@@ -30,7 +30,7 @@ router.get('/', function (req, res, next) {
 
     res.render('index', ro);
   })
-  .catch(err => console.log(err))
+  /*.catch(err => conso*//*le.log(err))*/
 
 });
 

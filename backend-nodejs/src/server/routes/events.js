@@ -4,13 +4,6 @@ const EventsController = require('../controllers/events');
 const authHelpers = require('../auth/auth_helpers');
 
 router.get('', (req, res, next)  => {
-  // return authHelpers.createUser(req, res)
-  // .then((response) => {
-  //   passport.authenticate('local', (err, user, info) => {
-  //     if (user) { handleResponse(res, 200, 'success'); }
-  //   })(req, res, next);
-  // })
-  // .catch((err) => { handleResponse(res, 500, 'error'); });
   return EventsController.INDEX().then(({ rows }) => { // previously, was "data". raw returns an object with "rows" key
     res.status(200).json(
       rows.reduce((acc, e) => {
@@ -34,7 +27,7 @@ router.post('', authHelpers.loginRequired, (req, res, next)  => {
 });
 
 //            vv req.params.id
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', authHelpers.loginRequired, (req, res, next) => {
   return EventsController.DESTROY(req).then((data) => {
 
     /* Take the array of events that's returned and turn it

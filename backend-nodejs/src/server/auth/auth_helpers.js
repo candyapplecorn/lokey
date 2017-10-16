@@ -6,8 +6,6 @@ function comparePass(userPassword, databasePassword) {
 }
 
 function createUser(req, res) {
-    console.log(req.body)
-    console.log(req.body.user)
   return handleErrors(req)
   .then(() => {
     const salt = bcrypt.genSaltSync();
