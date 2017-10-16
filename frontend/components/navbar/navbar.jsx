@@ -9,6 +9,7 @@ const sessionLinks = () => (
         <Link className="events-link" to="/events">events</Link>
         <Link className="map-link" to="/map">map</Link>
         <Link className="sign-in-link" to="/sign-up">sign up</Link>
+        <Link className="sign-in-link" to ="/sign-in">sign in</Link>
       </div>
     </nav>
   </div>

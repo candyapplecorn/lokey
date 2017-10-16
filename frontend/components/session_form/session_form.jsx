@@ -49,6 +49,24 @@ class SessionForm extends React.Component {
     }
   }
 
+  emailInput() {
+    if (this.props.formType === 'sign-up'){
+      return(
+        <div>
+        <br/>
+          <input type="text"
+            className="email-input"
+            value={this.state.email}
+            onChange={this.update('email')}
+            placeholder="EMAIL"
+            />
+        </div>
+      );
+    }else {
+      return <div></div>;
+    }
+  }
+
   typeChars(e) {
     e.preventDefault();
     const username = "demoUser".split("");
@@ -97,13 +115,7 @@ class SessionForm extends React.Component {
                 className={`${this.props.formType}-input`}
                 placeholder="USERNAME"
               />
-            <br/>
-              <input type="text"
-                className="email-input"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="EMAIL"
-                />
+            {this.emailInput()}
             <br/>
               <input type="password"
                 value={this.state.password}
