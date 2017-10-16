@@ -22,77 +22,42 @@ h5 {
   text-align: center;
 }
 
-.close-modal {
-  border: 2px solid dodgerblue;
-  height: 20px;
-  width: 20px;
+.mapContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Nunito', sans-serif;
-  color: dodgerblue;
-  background-color: white;
-  border-color: dodgerblue;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  transition: color .2s, background-color .2s, border .2s;
 }
 
-.close-modal:hover {
-  background-color: dodgerblue;
-  color: white;
-  transition: color .2s, background-color .2s, border .2s;
-  cursor: pointer;
+// Modal Styling
+
+.ReactModal__Content {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+}
+
+.event-form input[type="text"], .event-form textarea, .event-form select {
+  width: 100%;
+}
+
+.submit {
+  margin-left: 2px;
+  width: 50%;
 }
 
 .modal-title {
-  text-transform: lowercase;
-  color: white;
-  background: dodgerblue;
-  border: 2px solid dodgerblue;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  font-size: 1.5em;
-  padding: 10px 20px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 25px;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
-.map-activity-select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
-   border: 2px solid dodgerblue;
-   outline: none;
-   font-family: 'Nunito', sans-serif
+.close-modal {
+  font-weight: 200;
+  align-self: flex-start;
 }
 
-option, label, textarea, input {
-  font-family: 'Nunito', sans-serif;
+.event-form textarea {
+  height: 200px;
 }
 
-.create-activity-form {
-  display: inline-block;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // max-width: inherit;
-  // width: 500px;
-}
-
-.create-activity-form-top, .create-activity-form-bottom,
-.create-activity-description-label, .create-activity-activity-label,
-.create-activity-latitude-label, .create-activity-longitude-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.create-activity-form-submit {
-
+.close-modal:hover {
+  cursor: pointer;
 }
