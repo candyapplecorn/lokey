@@ -47,8 +47,6 @@
       database: 'passport_local_knex'
     });
 
-    console.log("database url:")
-    console.log(process.env.DATABASE_URL)
     if (process.env.NODE_ENV == 'production'){
       var params = url.parse(process.env.DATABASE_URL);
       var auth = params.auth.split(':');
