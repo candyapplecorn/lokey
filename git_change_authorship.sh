@@ -1,7 +1,7 @@
 #!/bin/sh
 #https://help.github.com/articles/changing-author-info/
 
-git filter-branch --env-filter '
+git filter-branch -f --env-filter '
 OLD_EMAIL="student@appacademy.io"
 CORRECT_NAME="Joseph Burger"
 CORRECT_EMAIL="candyapplecorn@gmail.com"
