@@ -6,11 +6,11 @@ const passport = require('../auth/local');
 
 router.post('', authHelpers.loginRedirect, (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
-    if (err) { handleResponse(res, 500, 'error'); }
-    if (!user) { handleResponse(res, 404, 'User not found'); }
+    if (err) { handleErr(res, 500, err); }
+    if (!user) { handleErr(res, 401, 'User not found'); }
     if (user) {
       req.logIn(user, function (error) {
-        if (error) handleResponse(res, 500, 'error');
+        if (error) handleErr(res, 500, 'error');
         authHelpers.pingUser(res, 200, user);
       });
     }
@@ -18,10 +18,10 @@ router.post('', authHelpers.loginRedirect, (req, res, next) => {
 });
 
 router.delete('', authHelpers.loginRequired, (req, res, next) => {
-  const user = req.user
+  const user = req.user;
   req.logout();
   // the passport middleware sets req.user to null
-  authHelpers.pingUser(res, 200, user || {}); // Response should respond with empty json
+  authHelpers.pingUser(res, 200, user || {}); // should respond w/ empty
                                        // ...but it just responds 200 ok
   // TESTING REVEALS:
   /*
@@ -36,6 +36,9 @@ router.delete('', authHelpers.loginRequired, (req, res, next) => {
 
 function handleResponse(res, code, statusMsg) {
   res.status(code).json({status: statusMsg});
+}
+function handleErr(res, code, statusMsg) {
+  res.status(code).json([statusMsg]);
 }
 
 module.exports = router;

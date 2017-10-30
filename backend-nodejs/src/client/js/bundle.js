@@ -3251,7 +3251,7 @@ var signup = exports.signup = function signup(user) {
     return SessionAPIUtil.signup(user).then(function (u) {
       return dispatch(receiveCurrentUser(u));
     }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
+      return dispatch(receiveErrors(err.responseJSON)), err;
     });
   };
 };
@@ -3261,7 +3261,8 @@ var login = exports.login = function login(user) {
     return SessionAPIUtil.login(user).then(function (u) {
       return dispatch(receiveCurrentUser(u));
     }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
+      dispatch(receiveErrors(err.responseJSON));
+      return err; // We must return the error object, not the action!
     });
   };
 };

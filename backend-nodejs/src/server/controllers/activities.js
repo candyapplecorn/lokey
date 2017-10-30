@@ -4,7 +4,7 @@ const knex = require('../db/connection');
 function INDEX(){
   return knex('activities')
   .select('id', 'name')
-  .map(row => row.name)
+  .map(row => row.name);
 }
 
 module.exports = {

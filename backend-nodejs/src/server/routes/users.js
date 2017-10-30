@@ -10,7 +10,7 @@ router.post('', authHelpers.loginRedirect, (req, res, next)  => {
     passport.authenticate('local', (err, user, info) => {
       if (user) {
         // Set the response's JSON to the user's fields.
-        authHelpers.pingUser(res, 200, user)
+        authHelpers.pingUser(res, 200, user);
 
         // Set the server's session's currentUser field to this user.
         // setCurrentUser(req, user)
@@ -24,7 +24,7 @@ router.post('', authHelpers.loginRedirect, (req, res, next)  => {
 
 function handleErrors(res, code, err) {
   // Send errors as an array of strings.
-  res.status(code).json({ err });
+  res.status(code).json([err]);
 }
 
 module.exports = router;

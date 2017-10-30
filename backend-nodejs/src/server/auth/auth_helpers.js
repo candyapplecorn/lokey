@@ -13,12 +13,13 @@ function createUser(req, res) {
     return knex('users')
     .insert({
       username: req.body.username,
+      email: req.body.email || "",
       password: hash
     })
     .returning('*');
   })
   .catch((err) => {
-    res.status(400).json([err.message]);
+    res.status(400).json(err);
   });
 }
 
