@@ -20,14 +20,16 @@ export const clearErrors = () => ({
 
 export const signup = user => dispatch => (
   SessionAPIUtil.signup(user).then(u => (dispatch(receiveCurrentUser(u))),
-  err => (dispatch(receiveErrors(err.responseJSON))))
+  err => (dispatch(receiveErrors(err.responseJSON)), err))
 );
 
 export const login = user => dispatch => (
   SessionAPIUtil.login(user).then(u => (
     dispatch(receiveCurrentUser(u))
-  ), err => (dispatch(receiveErrors(err.responseJSON))
-  ))
+  ), err => {
+    dispatch(receiveErrors(err.responseJSON));
+    return err; // We must return the error object, not the action!
+  })
 );
 
 export const logout = () => dispatch => (
