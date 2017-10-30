@@ -14,6 +14,6 @@ cp config/development_secrets.yml config/secrets.yml && \
 cd backend-nodejs && \
 cp dummy_dotenv .env && \
 npm i && \
-npm i -g knex && \
+npm i -g knex gulp && \
 cd .. && \
 rails db:setup

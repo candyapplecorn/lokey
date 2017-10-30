@@ -6,7 +6,7 @@ const url = require('url');
 require('dotenv').config();
 
 var pg = require('pg');
-pg.defaults.ssl = true;
+pg.defaults.ssl = process.env.NODE_ENV != "development";
 
 module.exports = {
   development: {
