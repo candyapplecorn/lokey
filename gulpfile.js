@@ -82,7 +82,7 @@ gulp.task('moreStyles', () =>
   gulp.src('./app/assets/**/*.css')
     .pipe(concatCss("bundle.css"))
     .pipe(gulp.dest('backend-nodejs/src/client/css'))
-)
+);
 
 gulp.task('views', () => {
   return gulp.src(paths.views)
