@@ -7,7 +7,8 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      email: ''
+      email: '',
+      ui: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submit = this.submit.bind(this);
@@ -21,7 +22,7 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
+    return e => this.state.ui && this.setState({
       [field]: e.currentTarget.value
     });
   }
@@ -69,8 +70,10 @@ class SessionForm extends React.Component {
 
   typeChars(e) {
     e.preventDefault();
+    this.setState({ username: '', password: '', ui: false });
     const username = "demoUser".split("");
     const password= "demosarecool".split("");
+
     const intervalId = setInterval(() => {
       if (username.length > 0) {
         this.setState({

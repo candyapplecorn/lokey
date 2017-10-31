@@ -50027,7 +50027,8 @@ var SessionForm = function (_React$Component) {
     _this.state = {
       username: '',
       password: '',
-      email: ''
+      email: '',
+      ui: true
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.submit = _this.submit.bind(_this);
@@ -50048,7 +50049,7 @@ var SessionForm = function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this2.state.ui && _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
@@ -50133,8 +50134,10 @@ var SessionForm = function (_React$Component) {
       var _this4 = this;
 
       e.preventDefault();
+      this.setState({ username: '', password: '', ui: false });
       var username = "demoUser".split("");
       var password = "demosarecool".split("");
+
       var intervalId = setInterval(function () {
         if (username.length > 0) {
           _this4.setState({
