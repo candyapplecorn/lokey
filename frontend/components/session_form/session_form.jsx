@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
       username: '',
       password: '',
       email: '',
-      ui: true
+      ui: true // Disabled when doing autologin
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submit = this.submit.bind(this);
@@ -16,9 +16,8 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(this.props.match.path !== newProps.match.path){
+    if(this.props.match.path !== newProps.match.path)
       this.props.clearErrors();
-    }
   }
 
   update(field) {
@@ -28,8 +27,8 @@ class SessionForm extends React.Component {
   }
 
   submit() {
-    const user = this.state;
-    this.props.submitForm(user).then(() => (this.props.history.push('/map')));
+    const { ui, ... user } = this.state;
+    this.props.submitForm(user).then(() => this.props.history.push('/map'));
   }
 
   handleSubmit(e) {
@@ -38,21 +37,29 @@ class SessionForm extends React.Component {
   }
 
   buttonLabel() {
-    const form = this.props.formType.slice(5, 8);
-    return "Sign " + form;
+    return `Sign ${this.props.formType.slice(5, 8)}`
   }
 
   navLink() {
     if (this.props.formType === 'sign-in') {
-      return (<div className="Links"><span className="session-active">{this.buttonLabel()}</span><Link className="session-link" to="/sign-up" onClick={this.clearErrors}>Create New Account</Link></div>);
+      return (
+        <div className="Links">
+          <span className="session-active">{this.buttonLabel()}</span>
+          <Link className="session-link" to="/sign-up" onClick={this.clearErrors}>Create New Account</Link>
+        </div>
+      );
     } else {
-      return (<div className="Links"><Link className="session-link" to="/sign-in" onClick={this.clearErrors}>Sign In</Link><span className="session-active">Create New Account</span></div>);
+      return (
+        <div className="Links">
+          <Link className="session-link" to="/sign-in" onClick={this.clearErrors}>Sign In</Link>
+          <span className="session-active">Create New Account</span>
+        </div>);
     }
   }
 
   emailInput() {
     if (this.props.formType === 'sign-up'){
-      return(
+      return (
         <div>
         <br/>
           <input type="text"
@@ -63,9 +70,8 @@ class SessionForm extends React.Component {
             />
         </div>
       );
-    }else {
+    } else
       return <div></div>;
-    }
   }
 
   typeChars(e) {
