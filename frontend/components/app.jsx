@@ -11,10 +11,12 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavbarContainer from './navbar/navbar_container';
 import SearchContainer from './map/search_container';
 import ProfileContainer from './profile/profile_container';
+import Home from './home';
 
 const App = () => (
   <div className="everything">
     <Switch>
+      <AuthRoute exact path="/" component={Home} />
       <AuthRoute path="/sign-in" component={SessionFormContainer} />
       <AuthRoute path="/sign-up" component={SessionFormContainer} />
       <Route path="/map" component={SearchContainer} />
