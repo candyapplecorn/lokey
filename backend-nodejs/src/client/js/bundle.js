@@ -3251,7 +3251,11 @@ var signup = exports.signup = function signup(user) {
     return SessionAPIUtil.signup(user).then(function (u) {
       return dispatch(receiveCurrentUser(u));
     }, function (err) {
+<<<<<<< HEAD
       return dispatch(receiveErrors(err.responseJSON));
+=======
+      return dispatch(receiveErrors(err.responseJSON)), err;
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     });
   };
 };
@@ -3261,7 +3265,12 @@ var login = exports.login = function login(user) {
     return SessionAPIUtil.login(user).then(function (u) {
       return dispatch(receiveCurrentUser(u));
     }, function (err) {
+<<<<<<< HEAD
       return dispatch(receiveErrors(err.responseJSON));
+=======
+      dispatch(receiveErrors(err.responseJSON));
+      return err; // We must return the error object, not the action!
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     });
   };
 };
@@ -50007,6 +50016,11 @@ var _reactRouterDom = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+<<<<<<< HEAD
+=======
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -50026,7 +50040,12 @@ var SessionForm = function (_React$Component) {
     _this.state = {
       username: '',
       password: '',
+<<<<<<< HEAD
       email: ''
+=======
+      email: '',
+      ui: true // Disabled when doing autologin
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.submit = _this.submit.bind(_this);
@@ -50037,9 +50056,13 @@ var SessionForm = function (_React$Component) {
   _createClass(SessionForm, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
+<<<<<<< HEAD
       if (this.props.match.path !== newProps.match.path) {
         this.props.clearErrors();
       }
+=======
+      if (this.props.match.path !== newProps.match.path) this.props.clearErrors();
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     }
   }, {
     key: 'update',
@@ -50047,7 +50070,11 @@ var SessionForm = function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
+<<<<<<< HEAD
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+=======
+        return _this2.state.ui && _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
       };
     }
   }, {
@@ -50055,7 +50082,14 @@ var SessionForm = function (_React$Component) {
     value: function submit() {
       var _this3 = this;
 
+<<<<<<< HEAD
       var user = this.state;
+=======
+      var _state = this.state,
+          ui = _state.ui,
+          user = _objectWithoutProperties(_state, ['ui']);
+
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
       this.props.submitForm(user).then(function () {
         return _this3.props.history.push('/map');
       });
@@ -50069,8 +50103,12 @@ var SessionForm = function (_React$Component) {
   }, {
     key: 'buttonLabel',
     value: function buttonLabel() {
+<<<<<<< HEAD
       var form = this.props.formType.slice(5, 8);
       return "Sign " + form;
+=======
+      return 'Sign ' + this.props.formType.slice(5, 8);
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     }
   }, {
     key: 'navLink',
@@ -50122,9 +50160,13 @@ var SessionForm = function (_React$Component) {
             placeholder: 'EMAIL'
           })
         );
+<<<<<<< HEAD
       } else {
         return _react2.default.createElement('div', null);
       }
+=======
+      } else return _react2.default.createElement('div', null);
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     }
   }, {
     key: 'typeChars',
@@ -50132,8 +50174,15 @@ var SessionForm = function (_React$Component) {
       var _this4 = this;
 
       e.preventDefault();
+<<<<<<< HEAD
       var username = "demoUser".split("");
       var password = "demosarecool".split("");
+=======
+      this.setState({ username: '', password: '', ui: false });
+      var username = "demoUser".split("");
+      var password = "demosarecool".split("");
+
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
       var intervalId = setInterval(function () {
         if (username.length > 0) {
           _this4.setState({

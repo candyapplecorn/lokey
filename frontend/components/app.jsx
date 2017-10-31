@@ -11,12 +11,18 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavbarContainer from './navbar/navbar_container';
 import SearchContainer from './map/search_container';
 import ProfileContainer from './profile/profile_container';
+<<<<<<< HEAD
 import Home from './home';
+=======
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
 
 const App = () => (
   <div className="everything">
     <Switch>
+<<<<<<< HEAD
       <AuthRoute exact path="/" component={Home} />
+=======
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
       <AuthRoute path="/sign-in" component={SessionFormContainer} />
       <AuthRoute path="/sign-up" component={SessionFormContainer} />
       <Route path="/map" component={SearchContainer} />

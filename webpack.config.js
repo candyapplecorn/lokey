@@ -15,7 +15,12 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
+<<<<<<< HEAD
           presets: ['es2015', 'react']
+=======
+          presets: ['es2015', 'react'],
+          plugins: [require('babel-plugin-transform-object-rest-spread')]
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
         }
       }
     ]

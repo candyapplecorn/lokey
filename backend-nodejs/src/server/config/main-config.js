@@ -16,7 +16,11 @@
   const passport = require('passport');
   const url = require('url');
 
+<<<<<<< HEAD
   const morganBody = require('morgan-body')
+=======
+  const morganBody = require('morgan-body');
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
 
   // *** view folders *** //
   const viewFolders = [
@@ -37,7 +41,11 @@
 
     app.use(cookieParser());
     app.use(bodyParser.json());
+<<<<<<< HEAD
     app.use(bodyParser.urlencoded()); // Rails just makes this werk, but I had to figure this out!
+=======
+    app.use(bodyParser.urlencoded({ extended: true })); // Rails just makes this werk, but I had to figure this out!
+>>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     app.use(bodyParser.urlencoded({ extended: false }));
 
     // uncomment if using express-session
