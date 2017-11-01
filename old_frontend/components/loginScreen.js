@@ -20,19 +20,6 @@ class LoginScreen extends React.Component {
   //
   login() {
     const { navigate } = this.props.navigation;
-<<<<<<< HEAD:old_frontend/components/loginScreen.js
-    getUser(this.state.username, this.state.password)
-      .then((response) => {
-        if (response.status !== 200){
-          //con//sole.log('Looks like there was a problem. Status Code: ' + response.status);
-          return;
-        }
-        response.json().then(function(data) {
-          //co//nsole.log(data);
-          navigate('MainScreenNavigator')
-        });
-      })
-=======
     async getUser(this.state.username, this.state.password){
     const ipAddress = config.ip;
 
@@ -59,7 +46,6 @@ class LoginScreen extends React.Component {
     throw e;
   }
 }
->>>>>>> 69de9c13ab47b5c01945e06e28a7236375140429:frontend/components/loginScreen.js
   }
 
 

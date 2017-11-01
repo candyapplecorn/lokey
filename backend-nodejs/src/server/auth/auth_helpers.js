@@ -13,20 +13,13 @@ function createUser(req, res) {
     return knex('users')
     .insert({
       username: req.body.username,
-<<<<<<< HEAD
-=======
       email: req.body.email || "",
->>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
       password: hash
     })
     .returning('*');
   })
   .catch((err) => {
-<<<<<<< HEAD
-    res.status(400).json([err.message]);
-=======
-    res.status(400).json(err);
->>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
+    res.status(400).json(err); // [err.message] ?
   });
 }
 
