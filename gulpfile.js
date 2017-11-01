@@ -82,11 +82,7 @@ gulp.task('moreStyles', () =>
   gulp.src('./app/assets/**/*.css')
     .pipe(concatCss("bundle.css"))
     .pipe(gulp.dest('backend-nodejs/src/client/css'))
-<<<<<<< HEAD
-)
-=======
 );
->>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
 
 gulp.task('views', () => {
   return gulp.src(paths.views)
