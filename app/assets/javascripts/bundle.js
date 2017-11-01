@@ -51110,6 +51110,13 @@ var loggedInSessionLinks = function loggedInSessionLinks(currentUser, logout) {
           { className: 'logout', onClick: logout },
           'log out'
         )
+      ),
+      _react2.default.createElement(
+        'span',
+        { className: 'username' },
+        'Hi ',
+        currentUser.username,
+        '!'
       )
     )
   );
@@ -51625,35 +51632,6 @@ var ActivityMap = function (_React$Component) {
       });
       return activities;
     }
-    // <h1 className="modal-title">Add Activity</h1>
-    // <form className="create-activity-form" onSubmit={(e) => this.handleSubmit(e)}>
-    //   <div className="create-activity-form-top">
-    //     <label className="create-activity-activity-label">Activity:
-    //       <select className="map-activity-select" onChange={this.update('activity')}>
-    //         <option disabled="true" selected="true">Please Select an Option</option>
-    //         {this.options()}
-    //       </select>
-    //     </label>
-    //     <label className="create-activity-description-label">Description:
-    //       <textarea
-    //         onChange={this.update('description')}
-    //         value={description}>
-    //         </textarea>
-    //     </label>
-    //   </div>
-    //   <br />
-    //   <div className="create-activity-form-bottom">
-    //     <label className="create-activity-latitude-label">Latitude:
-    //       <input value={this.state.lat}
-    //         onChange={this.update('lat')}></input>
-    //     </label>
-    //     <label className="create-activity-longitude-label">Longitude:
-    //       <input value={this.state.lng}
-    //         onChange={this.update('lng')}></input>
-    //     </label>
-    //   </div>
-    //   <br />
-
   }, {
     key: 'render',
     value: function render() {

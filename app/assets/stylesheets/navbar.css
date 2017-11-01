@@ -49,3 +49,8 @@
 .logo {
   height: 60px;
 }
+
+.username {
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
