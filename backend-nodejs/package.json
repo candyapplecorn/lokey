@@ -10,10 +10,7 @@
     "knex:reset": "knex migrate:rollback; knex migrate:latest; knex seed:run --debug"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
->>>>>>> 302feb9648aff4b23ce0955bf2e90d75f020d3d1
     "bcryptjs": "^2.3.0",
     "body-parser": "~1.15.1",
     "connect-flash": "^0.1.1",
