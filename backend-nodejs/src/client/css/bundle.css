@@ -212,7 +212,7 @@ table {
 }
 
 .logo {
-  height: 80%;
+  height: 60px;
 }
 
 .session-link {
@@ -599,7 +599,7 @@ h5 {
 }
 
 .logo {
-  height: 80%;
+  height: 60px;
 }
 .header {
   display: flex;
