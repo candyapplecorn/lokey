@@ -54,7 +54,7 @@ gulp.task('default', () => {
     ['nodemon'],
     ['watch'],
     ['styles'],
-    ['moreStyles'],
+    ['moreStyles']
     // ['cssAndScss']
   );
 });
