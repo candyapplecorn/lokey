@@ -2,8 +2,6 @@
 
 const path = require('path');
 const gulp = require('gulp');
-// const jshint = require('gulp-jshint');
-// const jscs = require('gulp-jscs');
 const runSequence = require('run-sequence');
 const nodemon = require('gulp-nodemon');
 const plumber = require('gulp-plumber');
@@ -48,36 +46,15 @@ const nodemonConfig = {
 
 gulp.task('default', () => {
   runSequence(
-    // ['jshint'],
-    // ['jscs'],
     ['lr'],
     ['nodemon'],
     ['watch'],
     ['styles'],
     ['moreStyles']
-    // ['cssAndScss']
   );
 });
 
 // *** sub tasks ** //
-
-// gulp.task('jshint', () => {
-//   return gulp.src(paths.scripts)
-//     .pipe(plumber())
-//     .pipe(jshint({
-//       esnext: true
-//     }))
-//     .pipe(jshint.reporter('jshint-stylish'))
-//     .pipe(jshint.reporter('fail'));
-// });
-//
-// gulp.task('jscs', () => {
-//   return gulp.src(paths.scripts)
-//     .pipe(plumber())
-//     .pipe(jscs())
-//     .pipe(jscs.reporter())
-//     .pipe(jscs.reporter('fail'));
-// });
 
 gulp.task('styles', () => {
   return gulp.src(paths.styles)
@@ -110,6 +87,7 @@ gulp.task('nodemon', () => {
 
 
 gulp.task('cssAndScss', function() {
+    // https://www.npmjs.com/package/gulp-sass
     var scssStream = gulp.src('../app/assets/**/*.scss')
         .pipe(sass())
         .pipe(concat('scss-files.scss'))
