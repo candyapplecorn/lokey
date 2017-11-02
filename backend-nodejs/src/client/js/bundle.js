@@ -13952,6 +13952,14 @@ var SessionActions = _interopRequireWildcard(_session_actions);
 
 var _redux = __webpack_require__(33);
 
+var _activity_util = __webpack_require__(349);
+
+var ActivityUtils = _interopRequireWildcard(_activity_util);
+
+var _interests_util = __webpack_require__(412);
+
+var InterestsUtil = _interopRequireWildcard(_interests_util);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -13985,6 +13993,8 @@ function debug(_ref) {
   window.dispatch = dispatch;
   window.store = store;
   window.BoundSessionActions = (0, _redux.bindActionCreators)(SessionActions, dispatch);
+  window.ActivityUtils = ActivityUtils;
+  window.InterestsUtil = InterestsUtil;
 }
 
 /***/ }),
@@ -46045,6 +46055,24 @@ var fetchActivities = exports.fetchActivities = function fetchActivities() {
   });
 };
 
+/*
+CREATE, DESTROY
+*/
+
+var createActivity = exports.createActivity = function createActivity(activity) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/activities/' + activity
+  });
+};
+
+var deleteActivity = exports.deleteActivity = function deleteActivity(activity) {
+  return $.ajax({
+    method: 'DELETE',
+    url: '/api/activities/' + activity
+  });
+};
+
 /***/ }),
 /* 350 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -52118,6 +52146,42 @@ var Home = function Home() {
 };
 
 exports.default = Home;
+
+/***/ }),
+/* 412 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var getInterests = exports.getInterests = function getInterests(user) {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/users/' + user.id + '/interests'
+  });
+};
+
+var createInterest = exports.createInterest = function createInterest(_ref) {
+  var user = _ref.user,
+      activityId = _ref.activityId;
+
+  return $.ajax({
+    method: 'POST',
+    url: '/api/users/' + user.id + '/interests/' + activityId
+  });
+};
+
+var deleteInterest = exports.deleteInterest = function deleteInterest(_ref2) {
+  var user = _ref2.user,
+      activityId = _ref2.activityId;
+  return $.ajax({
+    method: 'DELETE',
+    url: '/api/users/' + user.id + '/interests/' + activityId
+  });
+};
 
 /***/ })
 /******/ ]);

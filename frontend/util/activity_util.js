@@ -6,3 +6,21 @@ export const fetchActivities = () => (
     dataType:"json",
   })
 );
+
+/*
+CREATE, DESTROY
+*/
+
+export const createActivity = activity => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/activities/${activity}`
+  });
+};
+
+export const deleteActivity = activity => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/activities/${activity}`
+  })
+);
