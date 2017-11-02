@@ -31,7 +31,8 @@ function CREATE({ user_id, activity_id }){
 function DESTROY({ user_id, activity_id }){
   return knex('interests')
   .where({ user_id, activity_id })
-  .del();
+  .del()
+  .returning("*");
   //.catch(err)
 }
 

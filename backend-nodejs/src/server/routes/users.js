@@ -10,7 +10,9 @@ router.post('', authHelpers.loginRedirect, (req, res, next)  => {
     passport.authenticate('local', (err, user, info) => {
       if (user) {
         // Set the response's JSON to the user's fields.
-        authHelpers.pingUser(res, 200, user);
+        const { created_at, password, ... sendUser } = user;
+        debugger;
+        authHelpers.pingUser(res, 200, sendUser);
 
         // Set the server's session's currentUser field to this user.
         // setCurrentUser(req, user)

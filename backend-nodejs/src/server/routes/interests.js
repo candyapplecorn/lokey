@@ -30,6 +30,7 @@ router.delete(`${ROOTURL}/:activity_id`,
 
   return InterestsController.DESTROY({ user_id, activity_id })
   .then(function(interests){
+    debugger;
     res.status(200).json(interests); // responds with 1, for number of rows deleted
   })
   .catch(err => {
