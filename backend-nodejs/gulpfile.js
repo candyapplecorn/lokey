@@ -85,7 +85,8 @@ gulp.task('styles', () => {
 });
 
 gulp.task('moreStyles', () =>
-  gulp.src('../app/assets/**/*.css')
+  gulp.src(['../app/assets/stylesheets/base/reset.css',
+            '../app/assets/**/!(reset)*.css'])
     .pipe(concatCss("bundle.css"))
     .pipe(gulp.dest('src/client/css'))
 );
