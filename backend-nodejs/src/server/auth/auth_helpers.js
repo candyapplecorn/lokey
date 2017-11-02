@@ -23,6 +23,7 @@ function createUser(req, res) {
       email: email || "",
       password: hash
     })
+    // .first('username', 'email');
     .returning('*');
   })
   .catch((err) => {
