@@ -1,5 +1,5 @@
 const knex = require('../db/connection');
-const qs = require('querystring')
+const qs = require('querystring');
 
 // const err = error => co/*n*/sole.log(error);
 

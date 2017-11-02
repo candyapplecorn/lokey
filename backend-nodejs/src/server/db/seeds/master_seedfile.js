@@ -21,6 +21,7 @@ knex('activities').del()
     return Promise.join(
       knex('users').insert({
         username: 'renaldo',
+        email: 'apples@oranges.monkey',
         password: hash
       })
     );
@@ -31,6 +32,7 @@ knex('activities').del()
     return Promise.join(
       knex('users').insert({
         username: 'barbara',
+        email: 'cooking@is.fun',
         password: hash
       })
     );
@@ -41,6 +43,7 @@ knex('activities').del()
     return Promise.join(
       knex('users').insert({
         username: 'demoUser',
+        email: 'demos@are.cool',
         password: hash
       })
     );

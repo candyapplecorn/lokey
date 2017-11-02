@@ -18,25 +18,12 @@ router.post('', authHelpers.loginRedirect, (req, res, next) => {
 });
 
 router.delete('', authHelpers.loginRequired, (req, res, next) => {
-  const user = req.user;
   req.logout();
   // the passport middleware sets req.user to null
-  authHelpers.pingUser(res, 200, user || {}); // should respond w/ empty
-                                       // ...but it just responds 200 ok
-  // TESTING REVEALS:
-  /*
-    If an empty object(data) is sent to req.status(code).json(data)
-    THEN there will be no response body.
+  authHelpers.pingUser(res, 200, req.user || {});
 
-    HOWEVER if a key is added to data, then json will be set.
-    SINCE logout doesn't care about response, it's okay to
-    respond with empty data
-  */
 });
 
-function handleResponse(res, code, statusMsg) {
-  res.status(code).json({status: statusMsg});
-}
 function handleErr(res, code, statusMsg) {
   res.status(code).json([statusMsg]);
 }

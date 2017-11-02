@@ -33,7 +33,7 @@ router.delete(`${ROOTURL}/:activity_id`,
     res.status(200).json(interests); // responds with 1, for number of rows deleted
   })
   .catch(err => {
-    handleErrors(res, 500, err)
+    handleErrors(res, 500, err);
   });
 });
 
