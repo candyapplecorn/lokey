@@ -1,3 +1,139 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -215,6 +351,11 @@ table {
   height: 60px;
 }
 
+.username {
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
+
 .session-link {
   color: white;
   text-decoration: none;
@@ -438,7 +579,7 @@ h5 {
   align-items: center;
 }
 
-// Modal Styling
+/*Modal Styling*/
 
 .ReactModal__Content {
   font-family: 'Source Sans Pro', sans-serif;
@@ -473,6 +614,45 @@ h5 {
 .close-modal:hover {
   cursor: pointer;
 }
+.home {
+  background-image: url("https://res.cloudinary.com/daesquwob/image/upload/v1509475720/shttefan-280131_yvtml2.jpg");
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.home span {
+  align-items: baseline;
+  margin-bottom: 15px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+.home a {
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 25px;
+  padding: 8px;
+  color: white;
+  background-color: rgba(255,255,255,0.2);
+  margin-bottom: 115px;
+  text-decoration: none;
+}
+
+.home a:active {
+  color: black;
+  background-color: rgba(255,255,255,0.75);
+}
+
+.home a:hover {
+  background-color: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
 .map {
   width: 100vw;
   height: 90vh;
@@ -503,7 +683,7 @@ h5 {
   align-items: center;
 }
 
-// Modal Styling
+/*Modal Styling*/
 
 .ReactModal__Content {
   font-family: 'Source Sans Pro', sans-serif;
@@ -600,6 +780,11 @@ h5 {
 
 .logo {
   height: 60px;
+}
+
+.username {
+  color: white;
+  font-family: 'Nunito', sans-serif;
 }
 .header {
   display: flex;
@@ -811,140 +996,4 @@ h5 {
   background-color: white;
   transition: border .2s, color .2s, background-color .2s;
   cursor: pointer;
-}
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
