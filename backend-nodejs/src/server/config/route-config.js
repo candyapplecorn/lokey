@@ -11,14 +11,15 @@
     const sessionRoutes = require('../routes/session');
     const activityRoutes = require('../routes/activities');
     const eventRoutes = require('../routes/events');
+    const interestsRoutes = require('../routes/interests');
 
     // *** register routes *** //
     app.use('/', routes);
     app.use('/api/users', usersRoutes);
+    app.use('/api/users', interestsRoutes);
     app.use('/api/session', sessionRoutes);
     app.use('/api/activities', activityRoutes);
     app.use('/api/events', eventRoutes);
-    // app.use('/', userRoutes);
 
   };
 

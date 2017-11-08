@@ -1,12 +1,8 @@
 const knex = require('../db/connection');
 const qs = require('querystring')
 
-// const err = error => co/*n*/sole.log(error);
-
 // Returns a promise, the .then will have the activities array
 function INDEX(){
-  // return knex.select('*').from('events')
-
   // The RoR jbuilder and React utils expected a different format, so
   // rather than foreign keys, a more formatted response id desired:
   return knex.raw(`
@@ -60,7 +56,6 @@ function CREATE(req){
     })
     .then(o => {
       let event = o.rows[0];
-
       let [lat, lng] = [event.latitude, event.longitude].map(Number)
       event.lat = lat, event.lng = lng;
 
@@ -84,13 +79,6 @@ function DESTROY({ params: { id: event_id }}){
     .del();
     })
   ;
-
-  /*knex.select("*")
-  .from('events')
-  .where({ id: event_id })
-  .then(event => { // coordinate_id, host_id, activity_id
-  // ???
-  }).catch(err)*/
 }
 
 module.exports = {
