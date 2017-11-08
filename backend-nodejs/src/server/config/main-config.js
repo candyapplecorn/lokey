@@ -16,7 +16,7 @@
   const nunjucks = require('nunjucks');
   const passport = require('passport');
   const url = require('url');
-  const compression = require('compression');
+  //const compression = require('compression');
 
   // *** view folders *** //
   const viewFolders = [
@@ -35,7 +35,7 @@
     });
     app.set('view engine', 'html');
 
-    app.use(compression());
+    //app.use(compression());
     app.use(cookieParser());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true })); // Rails just makes this werk, but I had to figure this out!
