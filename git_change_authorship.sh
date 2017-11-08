@@ -2,8 +2,10 @@
 #https://help.github.com/articles/changing-author-info/
 if [[ $1 && $2 ]]; then
   # todo: make it so old_email, correct_name and CORRECT_EMAIL
-  #become arguments
+  # become arguments
+	echo "lol"
 else
+	echo "author unchanged"
   # or defaults
 fi;
 
