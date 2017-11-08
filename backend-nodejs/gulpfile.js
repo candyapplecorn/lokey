@@ -40,6 +40,7 @@ const nodemonConfig = {
   env: {
     NODE_ENV: 'development'
   }
+  , nodeArgs: ['--inspect'] , // Attempting to add gulp support for debug
 };
 
 // *** default task *** //
@@ -49,8 +50,8 @@ gulp.task('default', () => {
     ['lr'],
     ['nodemon'],
     ['watch'],
-    ['styles'],
-    ['moreStyles'],
+    // ['styles'],
+    // ['moreStyles'],
     ['cssAndScss']
   );
 });
@@ -61,13 +62,13 @@ gulp.task('styles', () => {
   return gulp.src(paths.styles)
     .pipe(plumber());
 });
-
-gulp.task('moreStyles', () =>
-  gulp.src(['../app/assets/stylesheets/base/reset.css',
-            '../app/assets/**/!(reset)*.css'])
-    .pipe(concatCss("bundle.css"))
-    .pipe(gulp.dest('src/client/css'))
-);
+//
+// gulp.task('moreStyles', () =>
+//   gulp.src(['../app/assets/stylesheets/base/reset.css',
+//             '../app/assets/**/!(reset)*.css'])
+//     .pipe(concatCss("bundle.css"))
+//     .pipe(gulp.dest('src/client/css'))
+// );
 
 gulp.task('views', () => {
   return gulp.src(paths.views)
