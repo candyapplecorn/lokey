@@ -1,5 +1,7 @@
 #### Install the [Node Inspector Manager](https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj?hl=en) to debug NodeJS in a similar fashion to Ruby on Rails apps.
 
+#### Install the [liveReload Chrome Plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei/related) for reasons... not working yet
+
 Debugging this project was painful. I had to use console.log for everything, which is obviously bad. It's 2017, get with the program, me! Yes, I did use node's --inspector with its chrome dev tools extension, however the extension didn't really work. It froze up when I tried to use it, so I gave up on DEM FANCY TOOLZ and resorted to console.log, which probably slowed my development process. Well, I know doing it in Ruby + RoR would have been nicer.
 
 I couldn't find info on the internet at all for bootstrapping the current user, which I eventually figured out how to do with the templating engine [Nunjucks](https://mozilla.github.io/nunjucks/).
