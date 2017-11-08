@@ -24,9 +24,9 @@ const loggedInSessionLinks = (currentUser, logout) => (
         <img className="logo" src="http://res.cloudinary.com/daesquwob/image/upload/v1508121498/LoKey_logo_p9vf9v.png"></img>
       </Link>
       <div className="navbar-links">
-        <Link className="events-link" to="/events">events</Link>
+        <Link className="profile-button" to="/events">events</Link>
         <Link className="map-link" to="/map">map</Link>
-        <Link className="profile" to="/profile">profile</Link>
+        <Link className="profile-button" to="/profile">profile</Link>
         <button className="logout" onClick={logout}>log out</button>
       </div>
       <span className="username">Hi {currentUser.username}!</span>
