@@ -50,7 +50,8 @@ gulp.task('default', () => {
     ['nodemon'],
     ['watch'],
     ['styles'],
-    ['moreStyles']
+    ['moreStyles'],
+    ['cssAndScss']
   );
 });
 
@@ -88,7 +89,8 @@ gulp.task('nodemon', () => {
 
 gulp.task('cssAndScss', function() {
     // https://www.npmjs.com/package/gulp-sass
-    var scssStream = gulp.src('../app/assets/**/*.scss')
+    var scssStream = gulp.src([/*'../app/assets/stylesheets/base/reset.scss',*/
+              '../app/assets/**/!(reset)*.scss'])
         .pipe(sass())
         .pipe(concat('scss-files.scss'))
     ;
