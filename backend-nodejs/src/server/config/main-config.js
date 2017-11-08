@@ -12,11 +12,11 @@
   const pgSession = require('connect-pg-simple')(session);
   const flash = require('connect-flash');
   const morgan = require('morgan');
+  const morganBody = require('morgan-body');
   const nunjucks = require('nunjucks');
   const passport = require('passport');
   const url = require('url');
-
-  const morganBody = require('morgan-body');
+  const compression = require('compression');
 
   // *** view folders *** //
   const viewFolders = [
@@ -35,6 +35,7 @@
     });
     app.set('view engine', 'html');
 
+    app.use(compression());
     app.use(cookieParser());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true })); // Rails just makes this werk, but I had to figure this out!
