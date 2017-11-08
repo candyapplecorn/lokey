@@ -12,6 +12,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify-css');
 var merge = require('merge-stream');
+var livereload = require('gulp-livereload');
 
 // *** config *** //
 
@@ -22,7 +23,7 @@ const paths = {
   ],
   styles: [
     path.join('src', 'client', 'css', '*.css'),
-    path.join('..', 'app', 'assets', 'stylesheets')
+    path.join('..', 'app', 'assets', 'stylesheets', '*.scss')
   ],
   views: [
     path.join('src', 'server', '**', '*.html'),
@@ -40,7 +41,7 @@ const nodemonConfig = {
   env: {
     NODE_ENV: 'development'
   }
-  , nodeArgs: ['--inspect'] , // Attempting to add gulp support for debug
+  , nodeArgs: [/*'--inspect' */] , // Attempting to add gulp support for debug
 };
 
 // *** default task *** //
@@ -49,10 +50,8 @@ gulp.task('default', () => {
   runSequence(
     ['lr'],
     ['nodemon'],
-    ['watch'],
-    // ['styles'],
-    // ['moreStyles'],
-    ['cssAndScss']
+    ['cssAndScss'],
+    ['watch']
   );
 });
 
@@ -103,13 +102,15 @@ gulp.task('cssAndScss', function() {
     var mergedStream = merge(scssStream, cssStream)
         .pipe(concat('styles.css'))
         .pipe(minify())
-        .pipe(gulp.dest('src/client/css'));
+        .pipe(gulp.dest('src/client/css'))
+        .pipe(livereload());
 
     return mergedStream;
 });
 
 
 gulp.task('watch', () => {
+  livereload.listen();
   gulp.watch(paths.html, ['html']);
   // gulp.watch(paths.scripts, [/*'jshint',*/ /*'jscs'*/]);
   gulp.watch(paths.styles, ['cssAndScss']);

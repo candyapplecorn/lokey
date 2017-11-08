@@ -39,16 +39,22 @@
     padding: 1em 0.5em;
 }
 
- @media all and (orientation:portrait) {
+@media all and (orientation:portrait) {
      #profile .button-container {
         flex-direction: column;
      }
 
      .detail-button {
-          width: 100%;
+        width: 100%;
+        padding: 1em 0em;
      }
 
- }
+     .detail-button i {
+        font-size: 4em;
+        padding: 0em;
+    }
+
+}
 
 // .header {
 //   display: flex;

@@ -52067,6 +52067,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
@@ -52075,55 +52077,118 @@ var _reactRouterDom = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Profile = function Profile(_ref) {
-  var currentUser = _ref.currentUser,
-      logout = _ref.logout;
-  return _react2.default.createElement(
-    'div',
-    { id: 'profile' },
-    _react2.default.createElement(
-      'h1',
-      { className: '' },
-      'Hello, ',
-      currentUser.username,
-      '!'
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'button-container' },
-      _react2.default.createElement(
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Profile = function (_React$Component) {
+  _inherits(Profile, _React$Component);
+
+  function Profile(props) {
+    _classCallCheck(this, Profile);
+
+    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+
+    _this.detailButton = _this.detailButton.bind(_this);
+    _this.goTo = _this.goTo.bind(_this);
+    return _this;
+  }
+
+  _createClass(Profile, [{
+    key: 'goTo',
+    value: function goTo(to) {
+      this.props.history.push(to);
+    }
+  }, {
+    key: 'detailButton',
+    value: function detailButton(_ref) {
+      var _this2 = this;
+
+      var className = _ref.className,
+          title = _ref.title,
+          to = _ref.to;
+
+      return _react2.default.createElement(
         'div',
-        { className: 'detail-button' },
+        { className: 'detail-button', onClick: function onClick() {
+            return _this2.goTo(to);
+          } },
         _react2.default.createElement(
           'h3',
           null,
-          'Events'
+          title
         ),
-        _react2.default.createElement('i', { className: 'fa fa-calendar', 'aria-hidden': 'true' })
-      ),
-      _react2.default.createElement(
+        _react2.default.createElement('i', { className: className, 'aria-hidden': 'true' })
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          currentUser = _props.currentUser,
+          logout = _props.logout;
+
+
+      return _react2.default.createElement(
         'div',
-        { className: 'detail-button' },
+        { id: 'profile' },
         _react2.default.createElement(
-          'h3',
+          'h1',
           null,
-          'Interests'
+          'Hello, ',
+          currentUser.username,
+          '!'
         ),
-        _react2.default.createElement('i', { className: 'fa fa-users', 'aria-hidden': 'true' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'detail-button' },
         _react2.default.createElement(
-          'h3',
-          null,
-          'Messages'
-        ),
-        _react2.default.createElement('i', { className: 'fa fa-comments', 'aria-hidden': 'true' })
-      )
-    )
-  );
-};
+          'div',
+          { className: 'button-container' },
+          this.detailButton({
+            className: "fa fa-calendar",
+            title: "Events",
+            to: '/events'
+          }),
+          this.detailButton({
+            className: "fa fa-users",
+            title: "Interests",
+            to: '/interests'
+          }),
+          this.detailButton({
+            className: "fa fa-comments",
+            title: "Messages",
+            to: '/messages'
+          })
+        )
+      );
+    }
+  }]);
+
+  return Profile;
+}(_react2.default.Component);
+//
+// const Profile = ({ currentUser, logout }) => (
+//   <div id="profile">
+//     <h1 className="">Hello, {currentUser.username}!</h1>
+//     <div className='button-container'>
+//
+//       <div className="detail-button">
+//           <h3>Events</h3>
+//           <i className="fa fa-calendar" aria-hidden="true"></i>
+//       </div>
+//
+//       <div className="detail-button">
+//         <h3>Interests</h3>
+//         <i className="fa fa-users" aria-hidden="true"></i>
+//       </div>
+//
+//       <div className="detail-button">
+//         <h3>Messages</h3>
+//         <i className="fa fa-comments" aria-hidden="true"></i>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 exports.default = Profile;
 /*
