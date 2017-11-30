@@ -7,7 +7,7 @@ import { getActivities } from '../../actions/activity_actions';
 import Search from './search';
 
 const mapStateToProps = state => ({
-  events: asArray(state),
+  events: asArray(state.events),
   activities: state.activities,
   currentUser: state.session.currentUser
 });

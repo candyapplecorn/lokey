@@ -11,6 +11,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavbarContainer from './navbar/navbar_container';
 import SearchContainer from './map/search_container';
 import ProfileContainer from './profile/profile_container';
+import Interests from './interests/interests';
 import Home from './home';
 
 const App = () => (
@@ -20,7 +21,8 @@ const App = () => (
       <AuthRoute path="/sign-in" component={SessionFormContainer} />
       <AuthRoute path="/sign-up" component={SessionFormContainer} />
       <Route path="/map" component={SearchContainer} />
-      <Route path="/profile" component={ProfileContainer} />
+      <ProtectedRoute path="/profile" component={ProfileContainer} />
+      <ProtectedRoute path="/interests" component={Interests} />
     </Switch>
     <footer className="navbar-footer">
       <div className="navbar-footer-div">

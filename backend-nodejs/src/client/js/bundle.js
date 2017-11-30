@@ -50840,6 +50840,10 @@ var _profile_container = __webpack_require__(417);
 
 var _profile_container2 = _interopRequireDefault(_profile_container);
 
+var _interests = __webpack_require__(423);
+
+var _interests2 = _interopRequireDefault(_interests);
+
 var _home = __webpack_require__(419);
 
 var _home2 = _interopRequireDefault(_home);
@@ -50857,7 +50861,8 @@ var App = function App() {
       _react2.default.createElement(_route_util.AuthRoute, { path: '/sign-in', component: _session_form_container2.default }),
       _react2.default.createElement(_route_util.AuthRoute, { path: '/sign-up', component: _session_form_container2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/map', component: _search_container2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _profile_container2.default })
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/profile', component: _profile_container2.default }),
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/interests', component: _interests2.default })
     ),
     _react2.default.createElement(
       'footer',
@@ -51394,7 +51399,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    events: (0, _selectors.asArray)(state),
+    events: (0, _selectors.asArray)(state.events),
     activities: state.activities,
     currentUser: state.session.currentUser
   };
@@ -51429,10 +51434,10 @@ exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapSt
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var asArray = exports.asArray = function asArray(state) {
-  if (Object.keys(state.events).length > 0) {
-    return Object.keys(state.events).map(function (key) {
-      return state.events[key];
+var asArray = exports.asArray = function asArray(obj) {
+  if (Object.keys(obj).length > 0) {
+    return Object.keys(obj).map(function (k) {
+      return obj[k];
     });
   }
   return [];
@@ -53291,6 +53296,54 @@ var interestsReducer = function interestsReducer() {
 };
 
 exports.default = interestsReducer;
+
+/***/ }),
+/* 423 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(13);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Interests = function Interests(props) {
+
+  var scrollToForm = function scrollToForm() {
+    return document.getElementById("form").scrollIntoView();
+  };
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'a',
+      { onClick: scrollToForm },
+      'Add New Interests'
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      'List goes here'
+    ),
+    _react2.default.createElement(
+      'div',
+      { id: 'form' },
+      'Form goes here'
+    )
+  );
+};
+
+exports.default = (0, _reactRouterDom.withRouter)(Interests);
 
 /***/ })
 /******/ ]);
