@@ -10,6 +10,7 @@ import * as SessionActions from './actions/session_actions';
 import { bindActionCreators } from 'redux';
 import * as ActivityUtils from './util/activity_util';
 import * as InterestsUtil from './util/interests_util';
+import * as InterestActions from './actions/interests_actions';
 // END DEBUG! THAT DARN BURGERMEISTER!
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,4 +36,5 @@ function debug({ store, store: { dispatch } }){
   window.BoundSessionActions = bindActionCreators(SessionActions, dispatch)
   window.ActivityUtils = ActivityUtils;
   window.InterestsUtil = InterestsUtil;
+  window.InterestsActions = InterestActions;
 }

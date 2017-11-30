@@ -14083,15 +14083,16 @@ var _interests_util = __webpack_require__(420);
 
 var InterestsUtil = _interopRequireWildcard(_interests_util);
 
+var _interests_actions = __webpack_require__(421);
+
+var InterestActions = _interopRequireWildcard(_interests_actions);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // END DEBUG! THAT DARN BURGERMEISTER!
 
-/*
-DEBUG! BLAME JOE!
-*/
 document.addEventListener('DOMContentLoaded', function () {
   var store = void 0;
   if (window.currentUser) {
@@ -14109,6 +14110,11 @@ document.addEventListener('DOMContentLoaded', function () {
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
 
+/*
+DEBUG! BLAME JOE!
+*/
+
+
 function debug(_ref) {
   var store = _ref.store,
       dispatch = _ref.store.dispatch;
@@ -14118,6 +14124,7 @@ function debug(_ref) {
   window.BoundSessionActions = (0, _redux.bindActionCreators)(SessionActions, dispatch);
   window.ActivityUtils = ActivityUtils;
   window.InterestsUtil = InterestsUtil;
+  window.InterestsActions = InterestActions;
 }
 
 /***/ }),
@@ -26662,6 +26669,10 @@ var _activities_reducer = __webpack_require__(352);
 
 var _activities_reducer2 = _interopRequireDefault(_activities_reducer);
 
+var _interests_reducer = __webpack_require__(422);
+
+var _interests_reducer2 = _interopRequireDefault(_interests_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
@@ -26669,7 +26680,8 @@ var rootReducer = (0, _redux.combineReducers)({
   errors: _errors_reducer2.default,
   events: _events_reducer2.default,
   activities: _activities_reducer2.default,
-  filters: _filters_reducer2.default
+  filters: _filters_reducer2.default,
+  interests: _interests_reducer2.default
 });
 
 exports.default = rootReducer;
@@ -53168,6 +53180,117 @@ var deleteInterest = exports.deleteInterest = function deleteInterest(_ref2) {
     url: '/api/interests/' + activityId
   });
 };
+
+/***/ }),
+/* 421 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.deleteInterest = exports.createInterest = exports.getInterests = exports.removeInterest = exports.receiveInterest = exports.receiveAllInterests = exports.REMOVE_INTEREST = exports.RECEIVE_INTEREST = exports.RECEIVE_ALL_INTERESTS = undefined;
+
+var _interests_util = __webpack_require__(420);
+
+var InterestAPIUtil = _interopRequireWildcard(_interests_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_ALL_INTERESTS = exports.RECEIVE_ALL_INTERESTS = 'RECEIVE_ALL_INTERESTS';
+var RECEIVE_INTEREST = exports.RECEIVE_INTEREST = 'RECEIVE_INTEREST';
+var REMOVE_INTEREST = exports.REMOVE_INTEREST = 'REMOVE_INTEREST';
+
+var receiveAllInterests = exports.receiveAllInterests = function receiveAllInterests(interests) {
+  return {
+    type: RECEIVE_ALL_INTERESTS,
+    interests: interests
+  };
+};
+
+var receiveInterest = exports.receiveInterest = function receiveInterest(interest) {
+  return {
+    type: RECEIVE_INTEREST,
+    interest: interest
+  };
+};
+
+var removeInterest = exports.removeInterest = function removeInterest(interest) {
+  return {
+    type: REMOVE_INTEREST,
+    interest: interest
+  };
+};
+
+var getInterests = exports.getInterests = function getInterests() {
+  return function (dispatch) {
+    InterestAPIUtil.getInterests().then(function (interests) {
+      return dispatch(receiveAllInterests(interests));
+    });
+  };
+};
+
+var createInterest = exports.createInterest = function createInterest(_ref) {
+  var activityId = _ref.activityId;
+  return function (dispatch) {
+    InterestAPIUtil.createInterest({ activityId: activityId }).then(function (interest) {
+      return dispatch(receiveInterest(interest));
+    });
+  };
+};
+
+var deleteInterest = exports.deleteInterest = function deleteInterest(_ref2) {
+  var activityId = _ref2.activityId;
+  return function (dispatch) {
+    InterestAPIUtil.deleteInterest({ activityId: activityId }).then(function (interest) {
+      return dispatch(removeInterest(interest));
+    });
+  };
+};
+
+/***/ }),
+/* 422 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _interests_actions = __webpack_require__(421);
+
+var _merge2 = __webpack_require__(75);
+
+var _merge3 = _interopRequireDefault(_merge2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var interestsReducer = function interestsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+  switch (action.type) {
+    case _interests_actions.RECEIVE_ALL_INTERESTS:
+      return (0, _merge3.default)({}, action.interests);
+    case _interests_actions.RECEIVE_INTEREST:
+      return (0, _merge3.default)({}, state, _defineProperty({}, action.interest.id, action.interest));
+    case _interests_actions.REMOVE_INTEREST:
+      var newState = (0, _merge3.default)({}, state);
+      delete newState[action.interest.id];
+      return newState;
+    default:
+      return state;
+  }
+};
+
+exports.default = interestsReducer;
 
 /***/ })
 /******/ ]);
