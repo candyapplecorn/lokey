@@ -19,7 +19,7 @@
   justify-content: space-evenly;
 }
 
-.events-link, .create-event-link, .map-link, .sign-in-link, .logout, .profile,
+.profile-button, .create-event-link, .map-link, .sign-in-link, .logout,
 .session-link, .session-link:hover, .session-active {
   text-decoration: none;
   font-size: 1em;
@@ -32,8 +32,8 @@
   transition: background-color .2s, color .2s
 }
 
-.events-link:hover, .create-event-link:hover, .map-link:hover, .logout:hover,
-.sign-in-link:hover, .profile:hover {
+.profile-button:hover, .create-event-link:hover, .map-link:hover, .logout:hover,
+.sign-in-link:hover {
   text-decoration: none;
   font-size: 1em;
   color: dodgerblue;

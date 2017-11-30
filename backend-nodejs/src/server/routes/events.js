@@ -4,6 +4,7 @@ const EventsController = require('../controllers/events');
 const authHelpers = require('../auth/auth_helpers');
 
 router.get('', (req, res, next)  => {
+  // req.query.bounds.[northeast|northwest] -- todo: joins, only get within
   return EventsController.INDEX().then(({ rows }) => { // previously, was "data". raw returns an object with "rows" key
     res.status(200).json(
       rows.reduce((acc, e) => {
