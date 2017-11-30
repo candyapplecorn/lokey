@@ -24,7 +24,7 @@ function INDEX(user){
 function CREATE({ user_id, activity_id }){
   return knex('interests')
   .insert({ user_id, activity_id })
-  .returning("*");
+  .returning("*").then(list => list.pop());
   //.catch(err)
 }
 
@@ -32,7 +32,7 @@ function DESTROY({ user_id, activity_id }){
   return knex('interests')
   .where({ user_id, activity_id })
   .del()
-  .returning("*");
+  .returning("*").then(list => list.pop());
   //.catch(err)
 }
 
