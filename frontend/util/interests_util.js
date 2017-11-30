@@ -1,20 +1,20 @@
-export const getInterests = user => {
+export const getInterests = () => {
   return $.ajax({
     method: 'GET',
-    url: `/api/users/${user.id}/interests`,
+    url: `/api/interests`,
   });
 };
 
-export const createInterest = ({ user, activityId }) => {
+export const createInterest = ({ activityId }) => {
   return $.ajax({
     method: 'POST',
-    url: `/api/users/${user.id}/interests/${activityId}`
+    url: `/api/interests/${activityId}`
   });
 };
 
-export const deleteInterest = ({ user, activityId }) => (
+export const deleteInterest = ({ activityId }) => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/users/${user.id}/interests/${activityId}`
+    url: `/api/interests/${activityId}`
   })
 );
